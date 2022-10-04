@@ -2,8 +2,6 @@ This directory contains all the docker stuff Joel needs in his bachelor thesis.
 
 The mariadb, clickhouse and postgres directories contain Dockerfiles and sources to create the appropriate docker images.
 
-The directory testclickhouse is just a clickhouse testground and failed to use the jdbc-bridge.
-
 The tpc-h generator directory contains a dockerfile to generate a docker volume with tpc-h test data.
 
 The script directory contains scripts to interact with the docker containers. Especially the import
