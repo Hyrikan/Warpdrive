@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestPGCH" time="12.51" tests="1" errors="0" skipped="0" failures="1">
+  <properties>
+    <property name="sun.desktop" value="gnome"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/home/joel/bachelorarbeit/Bachelorarbeit/MyDockers/benchmarkcontainer/benchmarkproject/target/test-classes:/home/joel/bachelorarbeit/Bachelorarbeit/MyDockers/benchmarkcontainer/benchmarkproject/target/classes:/home/joel/.m2/repository/org/postgresql/postgresql/42.2.11/postgresql-42.2.11.jar:/home/joel/.m2/repository/com/clickhouse/clickhouse-jdbc/0.3.2-patch11/clickhouse-jdbc-0.3.2-patch11-all.jar:/home/joel/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.1/junit-jupiter-engine-5.3.1.jar:/home/joel/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/home/joel/.m2/repository/org/junit/platform/junit-platform-engine/1.3.1/junit-platform-engine-1.3.1.jar:/home/joel/.m2/repository/org/junit/platform/junit-platform-commons/1.3.1/junit-platform-commons-1.3.1.jar:/home/joel/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/home/joel/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.1/junit-jupiter-api-5.3.1.jar:"/>
+    <property name="java.vm.vendor" value="Private Build"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value=""/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Linux"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64"/>
+    <property name="sun.java.command" value="/home/joel/bachelorarbeit/Bachelorarbeit/MyDockers/benchmarkcontainer/benchmarkproject/target/surefire/surefirebooter4357669351857530512.jar /home/joel/bachelorarbeit/Bachelorarbeit/MyDockers/benchmarkcontainer/benchmarkproject/target/surefire 2022-09-29T14-01-47_147-jvmRun1 surefire959010775745099152tmp surefire_09212886774053100895tmp"/>
+    <property name="test" value="TestPGCH#testReadLineitemSF1WarpDrive"/>
+    <property name="surefire.test.class.path" value="/home/joel/bachelorarbeit/Bachelorarbeit/MyDockers/benchmarkcontainer/benchmarkproject/target/test-classes:/home/joel/bachelorarbeit/Bachelorarbeit/MyDockers/benchmarkcontainer/benchmarkproject/target/classes:/home/joel/.m2/repository/org/postgresql/postgresql/42.2.11/postgresql-42.2.11.jar:/home/joel/.m2/repository/com/clickhouse/clickhouse-jdbc/0.3.2-patch11/clickhouse-jdbc-0.3.2-patch11-all.jar:/home/joel/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.1/junit-jupiter-engine-5.3.1.jar:/home/joel/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/home/joel/.m2/repository/org/junit/platform/junit-platform-engine/1.3.1/junit-platform-engine-1.3.1.jar:/home/joel/.m2/repository/org/junit/platform/junit-platform-commons/1.3.1/junit-platform-commons-1.3.1.jar:/home/joel/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/home/joel/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.1/junit-jupiter-api-5.3.1.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/joel"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="/usr/lib/jvm/java-8-openjdk-amd64/jre"/>
+    <property name="basedir" value="/home/joel/bachelorarbeit/Bachelorarbeit/MyDockers/benchmarkcontainer/benchmarkproject"/>
+    <property name="file.separator" value="/"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/home/joel/bachelorarbeit/Bachelorarbeit/MyDockers/benchmarkcontainer/benchmarkproject/target/surefire/surefirebooter4357669351857530512.jar"/>
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/classes"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="1.8.0_342-8u342-b07-0ubuntu1~20.04-b07"/>
+    <property name="user.name" value="joel"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="5.4.0-126-generic"/>
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/endorsed"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="/home/joel/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="java.version" value="1.8.0_342"/>
+    <property name="user.dir" value="/home/joel/bachelorarbeit/Bachelorarbeit/MyDockers/benchmarkcontainer/benchmarkproject"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value=":/home/joel/bachelorarbeit/Bachelorarbeit/Code/UCP/test_field_ucp/lib:/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Private Build"/>
+    <property name="java.vm.version" value="25.342-b07"/>
+    <property name="java.ext.dirs" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="52.0"/>
+  </properties>
+  <testcase name="testReadLineitemSF1WarpDrive" classname="TestPGCH" time="10.371">
+    <failure message="expected: &lt;6001215&gt; but was: &lt;0&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <6001215> but was: <0>
+	at TestPGCH.testReadLineitemSF1WarpDrive(TestPGCH.java:394)
+]]></failure>
+    <system-out><![CDATA[
+
+================= Initialization ===================================
+
+pg1 Executing query: 
+CREATE TABLE IF NOT EXISTS csvlineitemsf1(l_orderkey BIGINT, l_partkey INTEGER, l_suppkey INTEGER, l_linenumber INTEGER,l_returnflag CHARACTER(1), l_linestatus CHARACTER(1),l_shipinstruct CHARACTER(25),l_shipmode CHARACTER(10), l_comment VARCHAR(44));
+pg1 Executing query: 
+CREATE TABLE IF NOT EXISTS csvlineitemsf10(l_orderkey BIGINT, l_partkey INTEGER, l_suppkey INTEGER, l_linenumber INTEGER,l_returnflag CHARACTER(1), l_linestatus CHARACTER(1),l_shipinstruct CHARACTER(25),l_shipmode CHARACTER(10), l_comment VARCHAR(44));
+pg1 Executing query: 
+CREATE TABLE IF NOT EXISTS fdwlineitemsf1(l_orderkey BIGINT, l_partkey INTEGER, l_suppkey INTEGER, l_linenumber INTEGER,l_returnflag CHARACTER(1), l_linestatus CHARACTER(1),l_shipinstruct CHARACTER(25),l_shipmode CHARACTER(10), l_comment VARCHAR(44));
+pg1 Executing query: 
+CREATE TABLE IF NOT EXISTS fdwlineitemsf10(l_orderkey BIGINT, l_partkey INTEGER, l_suppkey INTEGER, l_linenumber INTEGER,l_returnflag CHARACTER(1), l_linestatus CHARACTER(1),l_shipinstruct CHARACTER(25),l_shipmode CHARACTER(10), l_comment VARCHAR(44));
+pg1 Executing query: 
+CREATE TABLE IF NOT EXISTS jdbclineitemsf1(l_orderkey BIGINT, l_partkey INTEGER, l_suppkey INTEGER, l_linenumber INTEGER,l_returnflag CHARACTER(1), l_linestatus CHARACTER(1),l_shipinstruct CHARACTER(25),l_shipmode CHARACTER(10), l_comment VARCHAR(44));
+pg1 Executing query: 
+CREATE TABLE IF NOT EXISTS jdbclineitemsf10(l_orderkey BIGINT, l_partkey INTEGER, l_suppkey INTEGER, l_linenumber INTEGER,l_returnflag CHARACTER(1), l_linestatus CHARACTER(1),l_shipinstruct CHARACTER(25),l_shipmode CHARACTER(10), l_comment VARCHAR(44));
+pg1 Executing query: 
+CREATE TABLE IF NOT EXISTS warplineitemsf1(l_orderkey BIGINT, l_partkey INTEGER, l_suppkey INTEGER, l_linenumber INTEGER,l_returnflag CHARACTER(1), l_linestatus CHARACTER(1),l_shipinstruct CHARACTER(25),l_shipmode CHARACTER(10), l_comment VARCHAR(44));
+pg1 Executing query: 
+CREATE TABLE IF NOT EXISTS warplineitemsf10(l_orderkey BIGINT, l_partkey INTEGER, l_suppkey INTEGER, l_linenumber INTEGER,l_returnflag CHARACTER(1), l_linestatus CHARACTER(1),l_shipinstruct CHARACTER(25),l_shipmode CHARACTER(10), l_comment VARCHAR(44));
+click1 Executing query: 
+DROP TABLE IF EXISTS click_export_lineitemsf1;
+click1 Executing query: 
+CREATE TABLE click_export_lineitemsf1(l_orderkey Int64, l_partkey Int32, l_suppkey Int32, l_linenumber Int32,l_returnflag String, l_linestatus String,l_shipinstruct String,l_shipmode String, l_comment String) ENGINE=File(CSV);
+pg1 Executing query: 
+CREATE EXTENSION IF NOT EXISTS clickhouse_fdw;
+pg1 Executing query: 
+CREATE SERVER IF NOT EXISTS fdwclick1 FOREIGN DATA WRAPPER clickhouse_fdw OPTIONS(host '10.5.1.31');
+pg1 Executing query: 
+CREATE USER MAPPING FOR postgres SERVER fdwclick1 OPTIONS(user 'default', password '');
+pg1 Executing query: 
+IMPORT FOREIGN SCHEMA "default" FROM SERVER fdwclick1 INTO public;
+pg1 Executing query: 
+CREATE EXTENSION IF NOT EXISTS jdbc_fdw;
+pg1 Executing query: 
+CREATE SERVER IF NOT EXISTS jdbcclick1 FOREIGN DATA WRAPPER jdbc_fdw OPTIONS(drivername 'com.clickhouse.jdbc.ClickHouseDriver',url 'jdbc:ch://jclick-1/default?user=default',jarfile '/JDBC_FDW/jdbcdriver/clickhouse-jdbc-0.3.2-patch11-all.jar');
+pg1 Executing query: 
+CREATE USER MAPPING FOR postgres SERVER jdbcclick1 OPTIONS(username 'default',password '');
+pg1 Executing query: 
+CREATE FOREIGN TABLE IF NOT EXISTS jdbcclick1_lineitemsf1(l_orderkey BIGINT, l_partkey INTEGER, l_suppkey INTEGER, l_linenumber INTEGER,l_returnflag CHARACTER(1), l_linestatus CHARACTER(1),l_shipinstruct CHARACTER(25),l_shipmode CHARACTER(10), l_comment VARCHAR(44)) SERVER jdbcclick1 OPTIONS(query 'SELECT  l_orderkey, l_partkey, l_suppkey, l_linenumber, l_returnflag, l_linestatus, l_shipinstruct, l_shipmode, l_comment FROM click_sf1_lineitem;');
+pg1 Executing query: 
+CREATE FOREIGN TABLE IF NOT EXISTS jdbcclick1_lineitemsf10(l_orderkey BIGINT, l_partkey INTEGER, l_suppkey INTEGER, l_linenumber INTEGER,l_returnflag CHARACTER(1), l_linestatus CHARACTER(1),l_shipinstruct CHARACTER(25),l_shipmode CHARACTER(10), l_comment VARCHAR(44)) SERVER jdbcclick1 OPTIONS(query 'SELECT  l_orderkey, l_partkey, l_suppkey, l_linenumber, l_returnflag, l_linestatus, l_shipinstruct, l_shipmode, l_comment FROM click_sf10_lineitem;');
+pg1 Executing query: 
+CREATE EXTENSION IF NOT EXISTS warpFDW;
+pg1 Executing query: 
+CREATE SERVER IF NOT EXISTS warp1  FOREIGN DATA WRAPPER warpFDW  OPTIONS (dbname 'db1', host '10.5.1.31', port '13337', fetch_size '250000', use_remote_estimate 'true', receiveinrow 'True');
+pg1 Executing query: 
+CREATE USER MAPPING IF NOT EXISTS FOR postgres SERVER warp1 OPTIONS(user 'default', password '');
+pg1 Executing query: 
+CREATE FOREIGN TABLE IF NOT EXISTS warp1_lineitemsf1(l_orderkey BIGINT, l_partkey INTEGER, l_suppkey INTEGER, l_linenumber INTEGER,l_returnflag CHARACTER(1), l_linestatus CHARACTER(1),l_shipinstruct CHARACTER(25),l_shipmode CHARACTER(10), l_comment VARCHAR(44)) SERVER warp1 OPTIONS(query 'SELECT  l_orderkey, l_partkey, l_suppkey, l_linenumber, l_returnflag, l_linestatus, l_shipinstruct, l_shipmode, l_comment FROM click_sf1_lineitem;');
+pg1 Executing query: 
+CREATE FOREIGN TABLE IF NOT EXISTS warp1_lineitemsf10(l_orderkey BIGINT, l_partkey INTEGER, l_suppkey INTEGER, l_linenumber INTEGER,l_returnflag CHARACTER(1), l_linestatus CHARACTER(1),l_shipinstruct CHARACTER(25),l_shipmode CHARACTER(10), l_comment VARCHAR(44)) SERVER warp1 OPTIONS(query 'SELECT  l_orderkey, l_partkey, l_suppkey, l_linenumber, l_returnflag, l_linestatus, l_shipinstruct, l_shipmode, l_comment FROM click_sf10_lineitem;');
+
+
+================= testReadLineitemSF1WarpDrive ===================================
+
+pg1 Executing query: 
+SELECT count(*) FROM warplineitemsf1;
+0
+pg1 Executing query: 
+INSERT INTO warplineitemsf1 SELECT * FROM warp1_lineitemsf1;
+Time elapsed: 10.276421s
+Raw nanos: 10276420908
+pg1 Executing query: 
+SELECT count(*) FROM warplineitemsf1;
+0
+]]></system-out>
+    <system-err><![CDATA[Sep 29, 2022 2:01:49 PM com.clickhouse.jdbc.internal.ClickHouseConnectionImpl
+WARNING: [JDBC Compliant Mode] Transaction is not supported. You may change jdbcCompliant to false to throw SQLException instead.
+Sep 29, 2022 2:01:49 PM com.clickhouse.jdbc.internal.ClickHouseConnectionImpl
+WARNING: [JDBC Compliant Mode] Transaction is not supported. You may change jdbcCompliant to false to throw SQLException instead.
+Sep 29, 2022 2:01:49 PM com.clickhouse.jdbc.internal.ClickHouseConnectionImpl
+WARNING: [JDBC Compliant Mode] Transaction [8855cedc-b6cb-405f-acfa-80091f3b93b8] (1 queries & 0 savepoints) is committed.
+Sep 29, 2022 2:01:49 PM com.clickhouse.jdbc.internal.ClickHouseConnectionImpl
+WARNING: [JDBC Compliant Mode] Transaction [32ec4133-8d1a-42dc-a1f4-fb0840d6cd0e] (0 queries & 0 savepoints) is committed.
+Sep 29, 2022 2:01:49 PM com.clickhouse.jdbc.internal.ClickHouseConnectionImpl
+WARNING: [JDBC Compliant Mode] Transaction is not supported. You may change jdbcCompliant to false to throw SQLException instead.
+Sep 29, 2022 2:01:49 PM com.clickhouse.jdbc.internal.ClickHouseConnectionImpl
+WARNING: [JDBC Compliant Mode] Transaction is not supported. You may change jdbcCompliant to false to throw SQLException instead.
+Sep 29, 2022 2:01:49 PM com.clickhouse.jdbc.internal.ClickHouseConnectionImpl
+WARNING: [JDBC Compliant Mode] Transaction [5216ea4f-dcf7-4f65-baf4-b10845471e57] (1 queries & 0 savepoints) is committed.
+Sep 29, 2022 2:01:49 PM com.clickhouse.jdbc.internal.ClickHouseConnectionImpl
+WARNING: [JDBC Compliant Mode] Transaction [8a581cb6-e8cc-4604-8651-61cc93351f5f] (0 queries & 0 savepoints) is committed.
+]]></system-err>
+  </testcase>
+</testsuite>

@@ -1,0 +1,133 @@
+.TH "warp_server.c" 3 "Fri Jun 17 2022" "warpFDW" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+warp_server.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'hello_world_util\&.h'\fP
+.br
+\fC#include 'warp_server\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBucx_server_ctx\fP"
+.br
+.ti -1c
+.RI "struct \fBtest_req\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBucx_server_ctx\fP \fBucx_server_ctx_t\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBtest_req\fP \fBtest_req_t\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBset_sock_addr\fP (const char *address_str, struct sockaddr_storage *saddr)"
+.br
+.ti -1c
+.RI "void \fBbuffer_free\fP (ucp_dt_iov_t *iov)"
+.br
+.ti -1c
+.RI "int \fBbuffer_malloc\fP (ucp_dt_iov_t *iov)"
+.br
+.ti -1c
+.RI "int \fBwarpserver_sendBuffer\fP (ucp_worker_h \fBucp_worker\fP, ucp_ep_h ep, ucp_dt_iov_t *buffer)"
+.br
+.ti -1c
+.RI "void * \fBstart_warp_drive\fP (void *unused)"
+.br
+.ti -1c
+.RI "int \fBwarpserver_initialize\fP (char *listen_addr_local, int port, int useINet6, \fBwarpserver_cb_query\fP querycb, \fBwarpserver_cb_data\fP datacb)"
+.br
+.ti -1c
+.RI "int \fBwarpserver_start\fP ()"
+.br
+.ti -1c
+.RI "int \fBwarpserver_stop\fP ()"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "char * \fBlisten_addr\fP = NULL"
+.br
+.ti -1c
+.RI "int \fBwarp_stop_sign\fP = 0"
+.br
+.ti -1c
+.RI "pthread_t \fBserver\fP"
+.br
+.ti -1c
+.RI "int \fBretval\fP"
+.br
+.ti -1c
+.RI "int \fBinitialized\fP = 0"
+.br
+.ti -1c
+.RI "\fBwarpserver_cb_query\fP \fBqueryCallback\fP"
+.br
+.ti -1c
+.RI "\fBwarpserver_cb_data\fP \fBdataCallback\fP"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBtest_req\fP \fBtest_req_t\fP"
+Stream request context\&. Holds a value to indicate whether or not the request is completed\&. 
+.SS "typedef struct \fBucx_server_ctx\fP \fBucx_server_ctx_t\fP"
+Server's application context to be used in the user's connection request callback\&. It holds the server's listener and the handle to an incoming connection request\&. 
+.SH "Function Documentation"
+.PP 
+.SS "void buffer_free (ucp_dt_iov_t * iov)"
+
+.SS "int buffer_malloc (ucp_dt_iov_t * iov)"
+
+.SS "void set_sock_addr (const char * address_str, struct sockaddr_storage * saddr)"
+Set an address for the server to listen on - INADDR_ANY on a well known port\&. 
+.SS "void * start_warp_drive (void * unused)"
+
+.SS "int warpserver_initialize (char * listen_addr_local, int port, int useINet6, \fBwarpserver_cb_query\fP querycb, \fBwarpserver_cb_data\fP datacb)"
+char *listen_addr_local specifies listen address\&. If not specified, server uses INADDR_ANY\&.
+.PP
+int port specifies local listen port\&. If not specified, server uses DEFAULT_PORT, as specified above\&.
+.PP
+int useINet6 specifies, whether an ipv6 address shall be used\&. 
+.SS "int warpserver_sendBuffer (ucp_worker_h ucp_worker, ucp_ep_h ep, ucp_dt_iov_t * buffer)"
+
+.SS "int warpserver_start ()"
+
+.SS "int warpserver_stop ()"
+
+.SH "Variable Documentation"
+.PP 
+.SS "\fBwarpserver_cb_data\fP dataCallback"
+
+.SS "int initialized = 0"
+
+.SS "char* listen_addr = NULL"
+Some more variables from me 
+.SS "\fBwarpserver_cb_query\fP queryCallback"
+
+.SS "int retval"
+
+.SS "pthread_t server"
+
+.SS "int warp_stop_sign = 0"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for warpFDW from the source code\&.

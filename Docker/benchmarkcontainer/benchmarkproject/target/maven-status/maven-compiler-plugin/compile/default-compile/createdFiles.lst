@@ -1,0 +1,12 @@
+core/ConsoleCommand.class
+core/SystemCatalog.class
+postgres/PostgresInteractor.class
+postgres/ForeignSystemHandler.class
+core/Interactor.class
+core/QueryPlanner.class
+postgres/ODBCSystemHandler.class
+postgres/PostgresSystemHandler.class
+clickhouse/ClickhouseInteractor.class
+postgres/JDBCSystemHandler.class
+core/JDBCProperties.class
+core/Utils.class

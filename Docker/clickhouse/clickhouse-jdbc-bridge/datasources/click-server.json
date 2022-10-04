@@ -1,0 +1,13 @@
+{
+  "$schema": "../datasource.jschema",
+  "click2": {
+    "driverUrls": [
+      "https://repo1.maven.org/maven2/com/clickhouse/clickhouse-jdbc/0.3.2-patch8/clickhouse-jdbc-0.3.2-patch8-http.jar"
+    ],
+    "driverClassName": "com.clickhouse.jdbc.ClickHouseDriver",
+    "jdbcUrl": "jdbc:clickhouse://jclick-2:8123/default",
+    "username": "default",
+    "password": "",
+    "maximumPoolSize": 5
+  }
+}

@@ -1,0 +1,12 @@
+/home/joel/bachelorarbeit/Bachelorarbeit/MyDockers/benchmarkcontainer/benchmarkproject/src/main/java/postgres/PostgresSystemHandler.java
+/home/joel/bachelorarbeit/Bachelorarbeit/MyDockers/benchmarkcontainer/benchmarkproject/src/main/java/core/QueryPlanner.java
+/home/joel/bachelorarbeit/Bachelorarbeit/MyDockers/benchmarkcontainer/benchmarkproject/src/main/java/core/SystemCatalog.java
+/home/joel/bachelorarbeit/Bachelorarbeit/MyDockers/benchmarkcontainer/benchmarkproject/src/main/java/core/ConsoleCommand.java
+/home/joel/bachelorarbeit/Bachelorarbeit/MyDockers/benchmarkcontainer/benchmarkproject/src/main/java/core/JDBCProperties.java
+/home/joel/bachelorarbeit/Bachelorarbeit/MyDockers/benchmarkcontainer/benchmarkproject/src/main/java/postgres/JDBCSystemHandler.java
+/home/joel/bachelorarbeit/Bachelorarbeit/MyDockers/benchmarkcontainer/benchmarkproject/src/main/java/postgres/ForeignSystemHandler.java
+/home/joel/bachelorarbeit/Bachelorarbeit/MyDockers/benchmarkcontainer/benchmarkproject/src/main/java/core/Interactor.java
+/home/joel/bachelorarbeit/Bachelorarbeit/MyDockers/benchmarkcontainer/benchmarkproject/src/main/java/clickhouse/ClickhouseInteractor.java
+/home/joel/bachelorarbeit/Bachelorarbeit/MyDockers/benchmarkcontainer/benchmarkproject/src/main/java/core/Utils.java
+/home/joel/bachelorarbeit/Bachelorarbeit/MyDockers/benchmarkcontainer/benchmarkproject/src/main/java/postgres/ODBCSystemHandler.java
+/home/joel/bachelorarbeit/Bachelorarbeit/MyDockers/benchmarkcontainer/benchmarkproject/src/main/java/postgres/PostgresInteractor.java

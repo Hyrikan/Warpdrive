@@ -1,0 +1,31 @@
+.TH "ucx_server_ctx" 3 "Fri Jun 17 2022" "warpFDW" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ucx_server_ctx
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "volatile ucp_conn_request_h \fBconn_request\fP"
+.br
+.ti -1c
+.RI "ucp_listener_h \fBlistener\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Server's application context to be used in the user's connection request callback\&. It holds the server's listener and the handle to an incoming connection request\&. 
+.SH "Field Documentation"
+.PP 
+.SS "volatile ucp_conn_request_h ucx_server_ctx::conn_request"
+
+.SS "ucp_listener_h ucx_server_ctx::listener"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for warpFDW from the source code\&.

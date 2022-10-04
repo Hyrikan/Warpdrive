@@ -1,0 +1,6 @@
+Run make to build the docker image.
+
+One has to connect to new containers with "docker exec -it containername bash" and run the privileges script:
+"mysql --password=maria1234 < /docker-entrypoint-initdb.d/privileges.sql"
+That creates the user mariadb with privileges and the database mdb.
+Subsequently one can run the import script from mydockers/scripte/maria-interactions/ to import tpc-h data into the container.

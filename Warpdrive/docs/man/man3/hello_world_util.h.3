@@ -1,0 +1,116 @@
+.TH "hello_world_util.h" 3 "Fri Jun 17 2022" "warpFDW" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+hello_world_util.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <ucs/memory/memory_type\&.h>\fP
+.br
+\fC#include <sys/poll\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <time\&.h>\fP
+.br
+\fC#include <unistd\&.h>\fP
+.br
+\fC#include <netdb\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBDEBUG\fP"
+.br
+.ti -1c
+.RI "#define \fBdebugmsg\fP(_msg)       fprintf(stderr, _msg)"
+.br
+.ti -1c
+.RI "#define \fBCHKERR_ACTION\fP(_cond,  _msg,  _action)"
+.br
+.ti -1c
+.RI "#define \fBCUDA_FUNC\fP(_func)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBprint_common_help\fP (void)"
+.br
+.ti -1c
+.RI "void * \fBmem_type_malloc\fP (size_t length)"
+.br
+.ti -1c
+.RI "void \fBmem_type_free\fP (void *address)"
+.br
+.ti -1c
+.RI "void * \fBmem_type_memcpy\fP (void *dst, const void *src, size_t count)"
+.br
+.ti -1c
+.RI "void * \fBmem_type_memset\fP (void *dst, int value, size_t count)"
+.br
+.ti -1c
+.RI "int \fBcheck_mem_type_support\fP (ucs_memory_type_t mem_type)"
+.br
+.ti -1c
+.RI "ucs_memory_type_t \fBparse_mem_type\fP (const char *opt_arg)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define CHKERR_ACTION(_cond, _msg, _action)"
+\fBValue:\fP
+.PP
+.nf
+    do { \
+        if (_cond) { \
+            fprintf(stderr, "Failed to %s\n", _msg); \
+            _action; \
+        } \
+    } while (0)
+.fi
+.SS "#define CUDA_FUNC(_func)"
+\fBValue:\fP
+.PP
+.nf
+    do {                                                   \
+        cudaError_t _result = (_func);                     \
+        if (cudaSuccess != _result) {                      \
+            fprintf(stderr, "%s failed: %s\n",             \
+                    #_func, cudaGetErrorString(_result));  \
+        }                                                  \
+    } while(0)
+.fi
+.SS "#define DEBUG"
+Copyright (C) Mellanox Technologies Ltd\&. 2001-2016\&. ALL RIGHTS RESERVED\&.
+.PP
+See file LICENSE for terms\&. 
+.SS "#define debugmsg(_msg)       fprintf(stderr, _msg)"
+
+.SH "Function Documentation"
+.PP 
+.SS "int check_mem_type_support (ucs_memory_type_t mem_type)"
+
+.SS "void mem_type_free (void * address)"
+
+.SS "void * mem_type_malloc (size_t length)"
+
+.SS "void * mem_type_memcpy (void * dst, const void * src, size_t count)"
+
+.SS "void * mem_type_memset (void * dst, int value, size_t count)"
+
+.SS "ucs_memory_type_t parse_mem_type (const char * opt_arg)"
+
+.SS "void print_common_help (void)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for warpFDW from the source code\&.

@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+
+  jpg1:
+    image: "joel_postgres"
+#    command: ["tail","-f","/dev/null"]
+#    command: ["./warpServer/build/pg_standalone_warpServer"]
+    container_name: "jpg1"
+    ports:
+        - "54321:5432"

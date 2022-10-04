@@ -1,0 +1,35 @@
+\hypertarget{warp__client_8h_source}{}\doxysection{warp\+\_\+client.\+h}
+\mbox{\hyperlink{warp__client_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#ifndef TEST\_FIELD\_UCP\_WARP\_CLIENT\_H}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define TEST\_FIELD\_UCP\_WARP\_CLIENT\_H}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <ucp/api/ucp.h>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <string.h>}    \textcolor{comment}{/* memset */}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <arpa/inet.h>} \textcolor{comment}{/* inet\_addr */}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <unistd.h>}    \textcolor{comment}{/* getopt */}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <stdlib.h>}    \textcolor{comment}{/* atoi */}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define DEFAULT\_PORT           13337}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define IP\_STRING\_LEN          50}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#define PORT\_STRING\_LEN        8}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#define TAG                    0xCAFE}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#define COMM\_TYPE\_DEFAULT      "{}STREAM"{}}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define PRINT\_INTERVAL         2000}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define TEST\_AM\_ID             0}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#define DEFAULT\_BUFFER\_SIZE    4096}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define DEFAULT\_BUFFER\_COUNT   5}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 }
+\DoxyCodeLine{46 \textcolor{keywordtype}{int} \mbox{\hyperlink{warp__client_8h_a39f7c09aa4d511bb248871e1694ba74f}{warpclient\_queryServer}}(\textcolor{keywordtype}{char} *server\_addr\_local, \textcolor{keywordtype}{int} port, \textcolor{keywordtype}{int} useINet6, \textcolor{keywordtype}{char} *query);}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{52 \textcolor{keywordtype}{void} *\mbox{\hyperlink{warp__client_8h_a781cba21127237f9bdd29e4ef67e8296}{warpclient\_getData}}(\textcolor{keywordtype}{size\_t} *written);}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{57 \textcolor{keywordtype}{int} \mbox{\hyperlink{warp__client_8h_ad8b41c650bf538d890acaf2c8e065458}{warpclient\_cleanup}}();}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//TEST\_FIELD\_UCP\_WARP\_CLIENT\_H}}
+
+\end{DoxyCode}

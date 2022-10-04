@@ -1,0 +1,16 @@
+{
+  "$schema": "../datasource.jschema",
+  "ch-server": {
+    "aliases": [
+      "pg1"
+    ],
+    "driverUrls": [
+      "https://repo1.maven.org/maven2/org/postgresql/postgresql/42.3.3/postgresql-42.3.3.jar"
+    ],
+    "driverClassName": "org.postgresql.Driver",
+    "jdbcUrl": "jdbc:postgresql://jpg-1:5432/db1",
+    "username": "postgres",
+    "password": "post1234",
+    "maximumPoolSize": 5
+  }
+}

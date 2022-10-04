@@ -1,0 +1,13 @@
+{
+  "$schema": "../../../../../docker/config/datasource.jschema",
+  "ch-server": {
+    "aliases": ["self"],
+    "driverClassName": "com.clickhouse.ClickHouseDriver",
+    "jdbcUrl": "jdbc:clickhouse://ch-server:8123/system",
+    "username": "default",
+    "password": "",
+    "initializationFailTimeout": 0,
+    "minimumIdle": 0,
+    "maximumPoolSize": 10
+  }
+}

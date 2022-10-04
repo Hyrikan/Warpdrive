@@ -1,0 +1,103 @@
+version: '3.8'
+
+
+services:
+
+  maria1:
+    image: joel_maria:latest
+    container_name: jmdb-1
+    restart: on-failure
+    networks:
+      default:
+        ipv4_address: 10.5.1.11
+    volumes:
+      - maria1data:/var/lib/mysql
+      - tpch_generator_tpch-data:/data
+    ports:
+      - "13306:3306"
+
+  maria2:
+    image: joel_maria:latest
+    container_name: jmdb-2
+    restart: on-failure
+    networks:
+      default:
+        ipv4_address: 10.5.1.12
+    volumes:
+      - maria2data:/var/lib/mysql
+      - tpch_generator_tpch-data:/data
+    ports:
+      - "23306:3306"
+
+  postgres1:
+    image: joel_postgres
+    container_name: jpg-1
+    restart: on-failure
+    networks:
+      default:
+        ipv4_address: 10.5.1.21
+    volumes:
+      - postgres1data:/var/lib/postgresql
+      - tpch_generator_tpch-data:/data
+    ports:
+      - "15432:5432"
+      - "13137:13337"
+
+  postgres2:
+    image: joel_postgres
+    container_name: jpg-2
+    restart: on-failure
+    networks:
+      default:
+        ipv4_address: 10.5.1.22
+    volumes:
+      - postgres2data:/var/lib/postgresql
+      - tpch_generator_tpch-data:/data
+    ports:
+      - "25432:5432"
+      - "13237:13337"
+
+  clickhouse1:
+    image: joel_clickhouse_allinone
+    container_name: jclick-1
+    restart: on-failure
+    networks:
+      default:
+        ipv4_address: 10.5.1.31
+    volumes:
+      - clickhouse1data:/var/lib/clickhouse
+      - tpch_generator_tpch-data:/data
+    ports:
+      - "19000:9000"
+
+  clickhouse:
+    image: joel_clickhouse_allinone
+    container_name: jclick-2
+    restart: on-failure
+    networks:
+      default:
+        ipv4_address: 10.5.1.32
+    ports:
+      - 29000:9000
+    volumes:
+      - clickhouse2data:/var/lib/clickhouse
+      - tpch_generator_tpch-data:/data
+
+volumes:
+  tpch_generator_tpch-data:
+    external: true
+  maria1data:
+  maria2data:
+  postgres1data:
+  postgres2data:
+  clickhouse1data:
+  clickhouse2data:
+
+
+networks:
+  default:
+    name: joeldb-net
+    ipam:
+      config:
+        - subnet: 10.5.1.0/16
+          gateway: 10.5.1.100

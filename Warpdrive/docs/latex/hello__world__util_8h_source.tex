@@ -1,0 +1,196 @@
+\hypertarget{hello__world__util_8h_source}{}\doxysection{hello\+\_\+world\+\_\+util.\+h}
+\mbox{\hyperlink{hello__world__util_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef UCX\_HELLO\_WORLD\_H}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define UCX\_HELLO\_WORLD\_H}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{comment}{/* Debug mode flag */}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define DEBUG}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <ucs/memory/memory\_type.h>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <sys/poll.h>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <time.h>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <unistd.h>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <netdb.h>}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#ifdef HAVE\_CUDA}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#  include <cuda.h>}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#  include <cuda\_runtime.h>}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{comment}{/* Macro to make conditional DEBUG more terse (hopefully :) )*/}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#ifdef DEBUG}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define debugmsg(\_msg) \(\backslash\)}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{    fprintf(stderr, \_msg)}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define debugmsg(...) ((void) 0)}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#define CHKERR\_ACTION(\_cond, \_msg, \_action) \(\backslash\)}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{    do \{ \(\backslash\)}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{        if (\_cond) \{ \(\backslash\)}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{            fprintf(stderr, "{}Failed to \%s\(\backslash\)n"{}}, \_msg); \(\backslash\)}
+\DoxyCodeLine{41             \_action; \(\backslash\)}
+\DoxyCodeLine{42         \} \(\backslash\)}
+\DoxyCodeLine{43     \} while (0)}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{keyword}{static} ucs\_memory\_type\_t test\_mem\_type = UCS\_MEMORY\_TYPE\_HOST;}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#define CUDA\_FUNC(\_func)                                   \(\backslash\)}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{    do \{                                                   \(\backslash\)}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{        cudaError\_t \_result = (\_func);                     \(\backslash\)}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{        if (cudaSuccess != \_result) \{                      \(\backslash\)}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{            fprintf(stderr, "{}\%s failed: \%s\(\backslash\)n"{}},             \(\backslash\)}
+\DoxyCodeLine{53                     \#\_func, cudaGetErrorString(\_result));  \(\backslash\)}
+\DoxyCodeLine{54         \}                                                  \(\backslash\)}
+\DoxyCodeLine{55     \} while(0)}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{keywordtype}{void} \mbox{\hyperlink{hello__world__util_8h_aa20d6d8b14b30cda99da783b613b0ef1}{print\_common\_help}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{keywordtype}{void} *\mbox{\hyperlink{hello__world__util_8h_af46842eaa1c5bf237be9f1f546d3e5e9}{mem\_type\_malloc}}(\textcolor{keywordtype}{size\_t} length)}
+\DoxyCodeLine{61 \{}
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} *ptr;}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{keywordflow}{switch} (test\_mem\_type) \{}
+\DoxyCodeLine{65     \textcolor{keywordflow}{case} UCS\_MEMORY\_TYPE\_HOST:}
+\DoxyCodeLine{66         ptr = malloc(length);}
+\DoxyCodeLine{67         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#ifdef HAVE\_CUDA}}
+\DoxyCodeLine{69     \textcolor{keywordflow}{case} UCS\_MEMORY\_TYPE\_CUDA:}
+\DoxyCodeLine{70         \mbox{\hyperlink{hello__world__util_8h_a4151c850a3d3e2b76ac1d976230edfef}{CUDA\_FUNC}}(cudaMalloc(\&ptr, length));}
+\DoxyCodeLine{71         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{72     \textcolor{keywordflow}{case} UCS\_MEMORY\_TYPE\_CUDA\_MANAGED:}
+\DoxyCodeLine{73         \mbox{\hyperlink{hello__world__util_8h_a4151c850a3d3e2b76ac1d976230edfef}{CUDA\_FUNC}}(cudaMallocManaged(\&ptr, length, cudaMemAttachGlobal));}
+\DoxyCodeLine{74         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{76     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{77         fprintf(stderr, \textcolor{stringliteral}{"{}Unsupported memory type: \%d\(\backslash\)n"{}}, test\_mem\_type);}
+\DoxyCodeLine{78         ptr = NULL;}
+\DoxyCodeLine{79         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{80     \}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     \textcolor{keywordflow}{return} ptr;}
+\DoxyCodeLine{83 \}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85 \textcolor{keywordtype}{void} \mbox{\hyperlink{hello__world__util_8h_a002df842bf4277126a5aacb890c328e9}{mem\_type\_free}}(\textcolor{keywordtype}{void} *address)}
+\DoxyCodeLine{86 \{}
+\DoxyCodeLine{87     \textcolor{keywordflow}{switch} (test\_mem\_type) \{}
+\DoxyCodeLine{88     \textcolor{keywordflow}{case} UCS\_MEMORY\_TYPE\_HOST:}
+\DoxyCodeLine{89         free(address);}
+\DoxyCodeLine{90         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#ifdef HAVE\_CUDA}}
+\DoxyCodeLine{92     \textcolor{keywordflow}{case} UCS\_MEMORY\_TYPE\_CUDA:}
+\DoxyCodeLine{93     \textcolor{keywordflow}{case} UCS\_MEMORY\_TYPE\_CUDA\_MANAGED:}
+\DoxyCodeLine{94         \mbox{\hyperlink{hello__world__util_8h_a4151c850a3d3e2b76ac1d976230edfef}{CUDA\_FUNC}}(cudaFree(address));}
+\DoxyCodeLine{95         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{97     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{98         fprintf(stderr, \textcolor{stringliteral}{"{}Unsupported memory type: \%d\(\backslash\)n"{}}, test\_mem\_type);}
+\DoxyCodeLine{99         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{100     \}}
+\DoxyCodeLine{101 \}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \textcolor{keywordtype}{void} *\mbox{\hyperlink{hello__world__util_8h_aa6acbb1c069b47e71b3c3a741e6b0185}{mem\_type\_memcpy}}(\textcolor{keywordtype}{void} *dst, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *src, \textcolor{keywordtype}{size\_t} count)}
+\DoxyCodeLine{104 \{}
+\DoxyCodeLine{105     \textcolor{keywordflow}{switch} (test\_mem\_type) \{}
+\DoxyCodeLine{106     \textcolor{keywordflow}{case} UCS\_MEMORY\_TYPE\_HOST:}
+\DoxyCodeLine{107         memcpy(dst, src, count);}
+\DoxyCodeLine{108         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#ifdef HAVE\_CUDA}}
+\DoxyCodeLine{110     \textcolor{keywordflow}{case} UCS\_MEMORY\_TYPE\_CUDA:}
+\DoxyCodeLine{111     \textcolor{keywordflow}{case} UCS\_MEMORY\_TYPE\_CUDA\_MANAGED:}
+\DoxyCodeLine{112         \mbox{\hyperlink{hello__world__util_8h_a4151c850a3d3e2b76ac1d976230edfef}{CUDA\_FUNC}}(cudaMemcpy(dst, src, count, cudaMemcpyDefault));}
+\DoxyCodeLine{113         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{114 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{115     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{116         fprintf(stderr, \textcolor{stringliteral}{"{}Unsupported memory type: \%d\(\backslash\)n"{}}, test\_mem\_type);}
+\DoxyCodeLine{117         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{118     \}}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120     \textcolor{keywordflow}{return} dst;}
+\DoxyCodeLine{121 \}}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123 \textcolor{keywordtype}{void} *\mbox{\hyperlink{hello__world__util_8h_afb06a1b146dee644ece28adb471b08b7}{mem\_type\_memset}}(\textcolor{keywordtype}{void} *dst, \textcolor{keywordtype}{int} value, \textcolor{keywordtype}{size\_t} count)}
+\DoxyCodeLine{124 \{}
+\DoxyCodeLine{125     \textcolor{keywordflow}{switch} (test\_mem\_type) \{}
+\DoxyCodeLine{126     \textcolor{keywordflow}{case} UCS\_MEMORY\_TYPE\_HOST:}
+\DoxyCodeLine{127         memset(dst, value, count);}
+\DoxyCodeLine{128         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#ifdef HAVE\_CUDA}}
+\DoxyCodeLine{130     \textcolor{keywordflow}{case} UCS\_MEMORY\_TYPE\_CUDA:}
+\DoxyCodeLine{131     \textcolor{keywordflow}{case} UCS\_MEMORY\_TYPE\_CUDA\_MANAGED:}
+\DoxyCodeLine{132         \mbox{\hyperlink{hello__world__util_8h_a4151c850a3d3e2b76ac1d976230edfef}{CUDA\_FUNC}}(cudaMemset(dst, value, count));}
+\DoxyCodeLine{133         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{135     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{136         fprintf(stderr, \textcolor{stringliteral}{"{}Unsupported memory type: \%d"{}}, test\_mem\_type);}
+\DoxyCodeLine{137         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{138     \}}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140     \textcolor{keywordflow}{return} dst;}
+\DoxyCodeLine{141 \}}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143 \textcolor{keywordtype}{int} \mbox{\hyperlink{hello__world__util_8h_a75bec1313ccdbfe3522232e87f37fa10}{check\_mem\_type\_support}}(ucs\_memory\_type\_t mem\_type)}
+\DoxyCodeLine{144 \{}
+\DoxyCodeLine{145     \textcolor{keywordflow}{switch} (test\_mem\_type) \{}
+\DoxyCodeLine{146     \textcolor{keywordflow}{case} UCS\_MEMORY\_TYPE\_HOST:}
+\DoxyCodeLine{147         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{148     \textcolor{keywordflow}{case} UCS\_MEMORY\_TYPE\_CUDA:}
+\DoxyCodeLine{149     \textcolor{keywordflow}{case} UCS\_MEMORY\_TYPE\_CUDA\_MANAGED:}
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#ifdef HAVE\_CUDA}}
+\DoxyCodeLine{151         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{153         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{155     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{156         fprintf(stderr, \textcolor{stringliteral}{"{}Unsupported memory type: \%d"{}}, test\_mem\_type);}
+\DoxyCodeLine{157         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{158     \}}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{161 \}}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163 ucs\_memory\_type\_t \mbox{\hyperlink{hello__world__util_8h_a605f6e8e2e57b2613e5817036bb21388}{parse\_mem\_type}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *opt\_arg)}
+\DoxyCodeLine{164 \{}
+\DoxyCodeLine{165     \textcolor{keywordflow}{if} (!strcmp(opt\_arg, \textcolor{stringliteral}{"{}host"{}})) \{}
+\DoxyCodeLine{166         \textcolor{keywordflow}{return} UCS\_MEMORY\_TYPE\_HOST;}
+\DoxyCodeLine{167     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!strcmp(opt\_arg, \textcolor{stringliteral}{"{}cuda"{}}) \&\&}
+\DoxyCodeLine{168                \mbox{\hyperlink{hello__world__util_8h_a75bec1313ccdbfe3522232e87f37fa10}{check\_mem\_type\_support}}(UCS\_MEMORY\_TYPE\_CUDA)) \{}
+\DoxyCodeLine{169         \textcolor{keywordflow}{return} UCS\_MEMORY\_TYPE\_CUDA;}
+\DoxyCodeLine{170     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!strcmp(opt\_arg, \textcolor{stringliteral}{"{}cuda-\/managed"{}}) \&\&}
+\DoxyCodeLine{171                \mbox{\hyperlink{hello__world__util_8h_a75bec1313ccdbfe3522232e87f37fa10}{check\_mem\_type\_support}}(UCS\_MEMORY\_TYPE\_CUDA\_MANAGED)) \{}
+\DoxyCodeLine{172         \textcolor{keywordflow}{return} UCS\_MEMORY\_TYPE\_CUDA\_MANAGED;}
+\DoxyCodeLine{173     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{174         fprintf(stderr, \textcolor{stringliteral}{"{}Unsupported memory type: \(\backslash\)"{}\%s\(\backslash\)"{}.\(\backslash\)n"{}}, opt\_arg);}
+\DoxyCodeLine{175     \}}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177     \textcolor{keywordflow}{return} UCS\_MEMORY\_TYPE\_LAST;}
+\DoxyCodeLine{178 \}}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180 \textcolor{keywordtype}{void} \mbox{\hyperlink{hello__world__util_8h_aa20d6d8b14b30cda99da783b613b0ef1}{print\_common\_help}}()}
+\DoxyCodeLine{181 \{}
+\DoxyCodeLine{182     fprintf(stderr, \textcolor{stringliteral}{"{}  -\/p <port>     Set alternative server port (default:13337)\(\backslash\)n"{}});}
+\DoxyCodeLine{183     fprintf(stderr, \textcolor{stringliteral}{"{}  -\/6            Use IPv6 address in data exchange\(\backslash\)n"{}});}
+\DoxyCodeLine{184     fprintf(stderr, \textcolor{stringliteral}{"{}  -\/s <size>     Set test string length (default:16)\(\backslash\)n"{}});}
+\DoxyCodeLine{185     fprintf(stderr, \textcolor{stringliteral}{"{}  -\/m <mem type> Memory type of messages\(\backslash\)n"{}});}
+\DoxyCodeLine{186     fprintf(stderr, \textcolor{stringliteral}{"{}                host -\/ system memory (default)\(\backslash\)n"{}});}
+\DoxyCodeLine{187     \textcolor{keywordflow}{if} (\mbox{\hyperlink{hello__world__util_8h_a75bec1313ccdbfe3522232e87f37fa10}{check\_mem\_type\_support}}(UCS\_MEMORY\_TYPE\_CUDA)) \{}
+\DoxyCodeLine{188         fprintf(stderr, \textcolor{stringliteral}{"{}                cuda -\/ NVIDIA GPU memory\(\backslash\)n"{}});}
+\DoxyCodeLine{189     \}}
+\DoxyCodeLine{190     \textcolor{keywordflow}{if} (\mbox{\hyperlink{hello__world__util_8h_a75bec1313ccdbfe3522232e87f37fa10}{check\_mem\_type\_support}}(UCS\_MEMORY\_TYPE\_CUDA\_MANAGED)) \{}
+\DoxyCodeLine{191         fprintf(stderr, \textcolor{stringliteral}{"{}                cuda-\/managed -\/ NVIDIA GPU managed/unified memory\(\backslash\)n"{}});}
+\DoxyCodeLine{192     \}}
+\DoxyCodeLine{193 \}}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* UCX\_HELLO\_WORLD\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

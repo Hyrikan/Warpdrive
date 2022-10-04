@@ -1,0 +1,158 @@
+.TH "warp_client.c" 3 "Fri Jun 17 2022" "warpFDW" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+warp_client.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'hello_world_util\&.h'\fP
+.br
+\fC#include 'warp_client\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBucx_server_ctx\fP"
+.br
+.ti -1c
+.RI "struct \fBtest_req\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBucx_server_ctx\fP \fBucx_server_ctx_t\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBtest_req\fP \fBtest_req_t\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBset_sock_addr\fP (const char *address_str, struct sockaddr_storage *saddr)"
+.br
+.ti -1c
+.RI "int \fBwarpclient_sendMsg\fP (ucp_dt_iov_t *buffer)"
+.br
+.ti -1c
+.RI "int \fBsend_query\fP (char *query)"
+.br
+.ti -1c
+.RI "void * \fBwarpclient_getData\fP (size_t *written)"
+.br
+.ti -1c
+.RI "int \fBwarpclient_cleanup\fP ()"
+.br
+.ti -1c
+.RI "int \fBwarpclient_queryServer\fP (char *server_addr_local, int port, int useINet6, char *query)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "char * \fBserver_addr\fP = NULL"
+.br
+.ti -1c
+.RI "ucp_context_h \fBucp_context\fP"
+.br
+.ti -1c
+.RI "ucp_worker_h \fBucp_worker\fP"
+.br
+.ti -1c
+.RI "ucp_ep_h \fBclient_ep\fP"
+.br
+.ti -1c
+.RI "int \fBcommunicationInProgress\fP = 0"
+.br
+.ti -1c
+.RI "ucp_dt_iov_t * \fBrecvbuffer\fP"
+.br
+.ti -1c
+.RI "ucp_request_param_t \fBrecvparam\fP"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBtest_req\fP \fBtest_req_t\fP"
+Stream request context\&. Holds a value to indicate whether or not the request is completed\&. 
+.SS "typedef struct \fBucx_server_ctx\fP \fBucx_server_ctx_t\fP"
+Server's application context to be used in the user's connection request callback\&. It holds the server's listener and the handle to an incoming connection request\&. 
+.SH "Function Documentation"
+.PP 
+.SS "int send_query (char * query)"
+Sends the sql query to the server and handles communication before data transfer\&. 
+.PP
+\fBReturns\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "void set_sock_addr (const char * address_str, struct sockaddr_storage * saddr)"
+Set an address for the server to listen on - INADDR_ANY on a well known port\&. 
+.SS "int warpclient_cleanup ()"
+Releases ressources from the data transfer\&. 
+.SS "void * warpclient_getData (size_t * written)"
+returns a buffer with data\&. As soon as the next buffer gets requested, the old one is considered obsolete and not safe to use anymore! Returns NULL, if there is no more data and the request is finished\&. Also releases ressources then\&. 
+.PP
+\fBReturns\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "int warpclient_queryServer (char * server_addr_local, int port, int useINet6, char * query)"
+Initializes a connection to a warpserver and sends the specified query\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIserver_addr_local\fP IP address string\&. Defaults to 'localhost' if NULL\&. 
+.br
+\fIport\fP Port as Integer between 0 and 65535\&. Defaults to 13337 if out of range\&. 
+.br
+\fIuseINet6\fP Flag to use IPv6 address String\&. 
+.br
+\fIquery\fP SQL query as String\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Returns error codes: -3: Failed to initialize UCP context or worker\&. -2: Failed to start client\&. -1: Failed to connect to server\&. 
+.RE
+.PP
+
+.SS "int warpclient_sendMsg (ucp_dt_iov_t * buffer)"
+Sends a message to the server 
+.PP
+\fBReturns\fP
+.RS 4
+
+.RE
+.PP
+
+.SH "Variable Documentation"
+.PP 
+.SS "ucp_ep_h client_ep"
+
+.SS "int communicationInProgress = 0"
+
+.SS "ucp_dt_iov_t* recvbuffer"
+
+.SS "ucp_request_param_t recvparam"
+
+.SS "char* server_addr = NULL"
+
+.SS "ucp_context_h ucp_context"
+
+.SS "ucp_worker_h ucp_worker"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for warpFDW from the source code\&.

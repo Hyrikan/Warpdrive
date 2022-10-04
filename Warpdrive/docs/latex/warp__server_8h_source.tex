@@ -1,0 +1,42 @@
+\hypertarget{warp__server_8h_source}{}\doxysection{warp\+\_\+server.\+h}
+\mbox{\hyperlink{warp__server_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by joel on 23.05.22.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef TEST\_FIELD\_UCP\_WARP\_SERVER\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define TEST\_FIELD\_UCP\_WARP\_SERVER\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <ucp/api/ucp.h>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <string.h>}    \textcolor{comment}{/* memset */}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <arpa/inet.h>} \textcolor{comment}{/* inet\_addr */}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <unistd.h>}    \textcolor{comment}{/* getopt */}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <stdlib.h>}    \textcolor{comment}{/* atoi */}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <pthread.h>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define DEFAULT\_PORT           13337}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define IP\_STRING\_LEN          50}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define PORT\_STRING\_LEN        8}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define DEFAULT\_BUFFER\_SIZE    4096}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define DEFAULT\_BUFFER\_COUNT   5}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 }
+\DoxyCodeLine{29 \textcolor{keyword}{typedef} int (*\mbox{\hyperlink{warp__server_8h_afaf3a561c34176bcd4fbd5a008e245d2}{warpserver\_cb\_query}})(\textcolor{keywordtype}{char} *querystring);}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{37 \textcolor{keyword}{typedef} void (*\mbox{\hyperlink{warp__server_8h_a3199e2b030e9c782d78743a39b7f35f7}{warpserver\_cb\_data}})(\textcolor{keywordtype}{void} **data, \textcolor{keywordtype}{size\_t} *length);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{48 \textcolor{keywordtype}{int} \mbox{\hyperlink{warp__server_8h_a50b3d3a371432b2d42e392666ce9e81a}{warpserver\_initialize}}(\textcolor{keywordtype}{char} *listen\_addr\_local, \textcolor{keywordtype}{int} port, \textcolor{keywordtype}{int} useINet6, \mbox{\hyperlink{warp__server_8h_afaf3a561c34176bcd4fbd5a008e245d2}{warpserver\_cb\_query}} querycb, \mbox{\hyperlink{warp__server_8h_a3199e2b030e9c782d78743a39b7f35f7}{warpserver\_cb\_data}} datacb);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{keywordtype}{int} \mbox{\hyperlink{warp__server_8h_a1f0861ae62411339af05bf3e2c86e68b}{warpserver\_start}}();}
+\DoxyCodeLine{51 \textcolor{keywordtype}{int} \mbox{\hyperlink{warp__server_8h_ad9a45d6b7af36ed4933c73565de32bb1}{warpserver\_stop}}();}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//TEST\_FIELD\_UCP\_WARP\_SERVER\_H}}
+
+\end{DoxyCode}

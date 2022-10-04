@@ -1,0 +1,166 @@
+.TH "ucp_client_server.c" 3 "Fri Jun 17 2022" "warpFDW" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ucp_client_server.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'hello_world_util\&.h'\fP
+.br
+\fC#include <ucp/api/ucp\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <arpa/inet\&.h>\fP
+.br
+\fC#include <unistd\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBucx_server_ctx\fP"
+.br
+.ti -1c
+.RI "struct \fBtest_req\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBDEFAULT_PORT\fP   13337"
+.br
+.ti -1c
+.RI "#define \fBIP_STRING_LEN\fP   50"
+.br
+.ti -1c
+.RI "#define \fBPORT_STRING_LEN\fP   8"
+.br
+.ti -1c
+.RI "#define \fBTAG\fP   0xCAFE"
+.br
+.ti -1c
+.RI "#define \fBCOMM_TYPE_DEFAULT\fP   'STREAM'"
+.br
+.ti -1c
+.RI "#define \fBPRINT_INTERVAL\fP   2000"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_NUM_ITERATIONS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBTEST_AM_ID\fP   0"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBucx_server_ctx\fP \fBucx_server_ctx_t\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBtest_req\fP \fBtest_req_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBsend_recv_type_t\fP { \fBCLIENT_SERVER_SEND_RECV_STREAM\fP = UCS_BIT(0), \fBCLIENT_SERVER_SEND_RECV_TAG\fP = UCS_BIT(1), \fBCLIENT_SERVER_SEND_RECV_AM\fP = UCS_BIT(2), \fBCLIENT_SERVER_SEND_RECV_DEFAULT\fP = CLIENT_SERVER_SEND_RECV_STREAM }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBbuffer_free\fP (ucp_dt_iov_t *iov)"
+.br
+.ti -1c
+.RI "int \fBbuffer_malloc\fP (ucp_dt_iov_t *iov)"
+.br
+.ti -1c
+.RI "int \fBfill_buffer\fP (ucp_dt_iov_t *iov)"
+.br
+.ti -1c
+.RI "void \fBset_sock_addr\fP (const char *address_str, struct sockaddr_storage *saddr)"
+.br
+.ti -1c
+.RI "ucs_status_t \fBucp_am_data_cb\fP (void *arg, const void *header, size_t header_length, void *data, size_t length, const ucp_am_recv_param_t *param)"
+.br
+.ti -1c
+.RI "int \fBmain\fP (int argc, char **argv)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define COMM_TYPE_DEFAULT   'STREAM'"
+
+.SS "#define DEFAULT_NUM_ITERATIONS   1"
+
+.SS "#define DEFAULT_PORT   13337"
+Copyright (C) Mellanox Technologies Ltd\&. 2018\&. ALL RIGHTS RESERVED\&.
+.PP
+See file LICENSE for terms\&. 
+.SS "#define IP_STRING_LEN   50"
+
+.SS "#define PORT_STRING_LEN   8"
+
+.SS "#define PRINT_INTERVAL   2000"
+
+.SS "#define TAG   0xCAFE"
+
+.SS "#define TEST_AM_ID   0"
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBtest_req\fP \fBtest_req_t\fP"
+Stream request context\&. Holds a value to indicate whether or not the request is completed\&. 
+.SS "typedef struct \fBucx_server_ctx\fP \fBucx_server_ctx_t\fP"
+Server's application context to be used in the user's connection request callback\&. It holds the server's listener and the handle to an incoming connection request\&. 
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBsend_recv_type_t\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fICLIENT_SERVER_SEND_RECV_STREAM \fP\fP
+.TP
+\fB\fICLIENT_SERVER_SEND_RECV_TAG \fP\fP
+.TP
+\fB\fICLIENT_SERVER_SEND_RECV_AM \fP\fP
+.TP
+\fB\fICLIENT_SERVER_SEND_RECV_DEFAULT \fP\fP
+.SH "Function Documentation"
+.PP 
+.SS "void buffer_free (ucp_dt_iov_t * iov)"
+
+.SS "int buffer_malloc (ucp_dt_iov_t * iov)"
+
+.SS "int fill_buffer (ucp_dt_iov_t * iov)"
+
+.SS "int main (int argc, char ** argv)"
+
+.SS "void set_sock_addr (const char * address_str, struct sockaddr_storage * saddr)"
+Set an address for the server to listen on - INADDR_ANY on a well known port\&. 
+.SS "ucs_status_t ucp_am_data_cb (void * arg, const void * header, size_t header_length, void * data, size_t length, const ucp_am_recv_param_t * param)"
+
+.SH "Variable Documentation"
+.PP 
+.SS "volatile int complete"
+
+.SS "void* desc"
+
+.SS "int is_rndv"
+
+.SS "void* recv_buf"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for warpFDW from the source code\&.

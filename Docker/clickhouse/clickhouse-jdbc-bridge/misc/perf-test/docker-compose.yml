@@ -1,0 +1,122 @@
+version: "3"
+
+#
+# perf-test1, perf-test2, and perf-test3 are KVMs running CentOS 7
+#
+services:
+  clickhouse:
+    image: clickhouse/clickhouse-server:22.3
+    hostname: ch-server
+    ports:
+      - "3307:3307"
+      - "8001:8001"
+      - "8123:8123"
+      - "9000:9000"
+    entrypoint: /bin/bash
+    command: >
+      -c "
+      echo '<clickhouse>
+        <listen_host>0.0.0.0</listen_host>
+        <mysql_port>3307</mysql_port>
+        <jdbc_bridge>
+          <host>jdbc-bridge</host>
+          <port>9019</port>
+        </jdbc_bridge>
+        <prometheus>
+          <endpoint>/metrics</endpoint>
+          <port>8001</port>
+          <metrics>true</metrics>
+          <events>true</events>
+          <asynchronous_metrics>true</asynchronous_metrics>
+        </prometheus>
+      </clickhouse>' > /etc/clickhouse-server/config.d/perf_test_config.xml && /entrypoint.sh
+      "
+    deploy:
+      mode: replicated
+      replicas: 1
+      resources:
+        reservations:
+          memory: 4196M
+        limits:
+          memory: 8192M
+      placement:
+        constraints:
+          - node.labels.alias == perf-test2
+      update_config:
+        parallelism: 1
+        delay: 5s
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 60s
+
+  mariadb:
+    image: mariadb:10.5
+    hostname: mariadb
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: test
+      MYSQL_ROOT_PASSWORD: root
+    deploy:
+      mode: replicated
+      replicas: 1
+      resources:
+        reservations:
+          memory: 1024M
+        limits:
+          memory: 2048M
+      placement:
+        constraints:
+          - node.labels.alias == perf-test1
+      update_config:
+        parallelism: 1
+        delay: 5s
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 60s
+
+  jdbc-bridge:
+    image: clickhouse/jdbc-bridge
+    hostname: jdbc-bridge
+    ports:
+      - "9019:9019"
+    command: >
+      /bin/bash -cx '
+        export TEST_CONF_URL="https://raw.githubusercontent.com/ClickHouse/clickhouse-jdbc-bridge/develop/misc/perf-test/jdbc-bridge";
+        mkdir -p /app/config/{datasources,queries,schemas} /app/drivers/mariadb /app/scripts;
+        curl -sSL -o /app/config/datasources/mariadb.json $$TEST_CONF_URL/config/datasources/mariadb.json;
+        curl -sSL -o /app/config/queries/constant.json $$TEST_CONF_URL/config/queries/constant.json;
+        curl -sSL -o /app/config/queries/small-table.json $$TEST_CONF_URL/config/queries/small-table.json;
+        curl -sSL -o /app/config/schemas/simple-num.json $$TEST_CONF_URL/config/schemas/simple-num.json;
+        curl -sSL -o /app/config/schemas/simple-row.json $$TEST_CONF_URL/config/schemas/simple-row.json;
+        curl -sSL -o /app/scripts/constant.sql $$TEST_CONF_URL/scripts/constant.sql;
+        curl -sSL -o /app/scripts/small-table.sql $$TEST_CONF_URL/scripts/small-table.sql;
+        ./docker-entrypoint.sh
+      '
+    # enable ES6 support in Nashorn
+    environment:
+      JDBC_BRIDGE_JVM_OPTS: "-Dnashorn.args=--language=es6"
+    deploy:
+      mode: replicated
+      # docker service scale <jdbc-bridge-service>=2
+      replicas: 1
+      resources:
+        reservations:
+          memory: 1024M
+        limits:
+          memory: 2048M
+      placement:
+        constraints:
+          - node.labels.alias == perf-test3
+      update_config:
+        parallelism: 1
+        delay: 5s
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 60s

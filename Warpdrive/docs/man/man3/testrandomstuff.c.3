@@ -1,0 +1,101 @@
+.TH "testrandomstuff.c" 3 "Fri Jun 17 2022" "warpFDW" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+testrandomstuff.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef int(* \fBcallback\fP) (char *msg)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBgetValues\fP (void *pointer)"
+.br
+.ti -1c
+.RI "int \fBtestquerycb\fP (char *querystring)"
+.br
+.ti -1c
+.RI "void \fBtestdatacb\fP (void **data, size_t *length)"
+.br
+.ti -1c
+.RI "int \fBmyCb\fP (char *msg)"
+.br
+.ti -1c
+.RI "void \fBcooleInitFunktion\fP (\fBcallback\fP cb)"
+.br
+.ti -1c
+.RI "void \fBtestCB\fP (char *msg)"
+.br
+.ti -1c
+.RI "void \fBtestFiles\fP ()"
+.br
+.ti -1c
+.RI "void \fBcallByReferenceTest\fP ()"
+.br
+.ti -1c
+.RI "void \fBfunctionCallbackTest\fP ()"
+.br
+.ti -1c
+.RI "void \fBstringPrintTest\fP ()"
+.br
+.ti -1c
+.RI "int \fBmain\fP (int argc, char **argv)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBcallback\fP \fBmycb\fP"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef int(* callback) (char *msg)"
+
+.SH "Function Documentation"
+.PP 
+.SS "void callByReferenceTest ()"
+
+.SS "void cooleInitFunktion (\fBcallback\fP cb)"
+
+.SS "void functionCallbackTest ()"
+
+.SS "void getValues (void * pointer)"
+
+.SS "int main (int argc, char ** argv)"
+
+.SS "int myCb (char * msg)"
+
+.SS "void stringPrintTest ()"
+
+.SS "void testCB (char * msg)"
+
+.SS "void testdatacb (void ** data, size_t * length)"
+
+.SS "void testFiles ()"
+
+.SS "int testquerycb (char * querystring)"
+
+.SH "Variable Documentation"
+.PP 
+.SS "\fBcallback\fP mycb"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for warpFDW from the source code\&.

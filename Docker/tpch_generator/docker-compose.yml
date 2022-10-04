@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  data-generator:
+    image: tpcgen:latest
+    container_name: tpcgen
+    volumes:
+      - tpch-data:/data
+    env_file:
+      - ./data_generator.env
+
+volumes:
+  tpch-data:
+
+networks:
+  default:
+    name: data_generator-testnet

@@ -1,0 +1,130 @@
+\hypertarget{warp__server_8h}{}\doxysection{warp\+\_\+server.\+h File Reference}
+\label{warp__server_8h}\index{warp\_server.h@{warp\_server.h}}
+{\ttfamily \#include $<$ucp/api/ucp.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+Include dependency graph for warp\+\_\+server.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{warp__server_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{warp__server_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{warp__server_8h_a16b710f592bf8f7900666392adc444dc}{DEFAULT\+\_\+\+PORT}}~13337
+\item 
+\#define \mbox{\hyperlink{warp__server_8h_ad81dbcbb914cfb5501e1c020f125061d}{IP\+\_\+\+STRING\+\_\+\+LEN}}~50
+\item 
+\#define \mbox{\hyperlink{warp__server_8h_a2c282e15322ad7ba3c93bd9b5623fb5e}{PORT\+\_\+\+STRING\+\_\+\+LEN}}~8
+\item 
+\#define \mbox{\hyperlink{warp__server_8h_a6e576a3c6530636d68b7a220480bcd32}{DEFAULT\+\_\+\+BUFFER\+\_\+\+SIZE}}~4096
+\item 
+\#define \mbox{\hyperlink{warp__server_8h_abb7814611632e59302550e4bbdfc2005}{DEFAULT\+\_\+\+BUFFER\+\_\+\+COUNT}}~5
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef int($\ast$ \mbox{\hyperlink{warp__server_8h_afaf3a561c34176bcd4fbd5a008e245d2}{warpserver\+\_\+cb\+\_\+query}}) (char $\ast$querystring)
+\item 
+typedef void($\ast$ \mbox{\hyperlink{warp__server_8h_a3199e2b030e9c782d78743a39b7f35f7}{warpserver\+\_\+cb\+\_\+data}}) (void $\ast$$\ast$data, size\+\_\+t $\ast$length)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{warp__server_8h_a50b3d3a371432b2d42e392666ce9e81a}{warpserver\+\_\+initialize}} (char $\ast$listen\+\_\+addr\+\_\+local, int port, int use\+INet6, \mbox{\hyperlink{warp__server_8h_afaf3a561c34176bcd4fbd5a008e245d2}{warpserver\+\_\+cb\+\_\+query}} querycb, \mbox{\hyperlink{warp__server_8h_a3199e2b030e9c782d78743a39b7f35f7}{warpserver\+\_\+cb\+\_\+data}} datacb)
+\item 
+int \mbox{\hyperlink{warp__server_8h_a1f0861ae62411339af05bf3e2c86e68b}{warpserver\+\_\+start}} ()
+\item 
+int \mbox{\hyperlink{warp__server_8h_ad9a45d6b7af36ed4933c73565de32bb1}{warpserver\+\_\+stop}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{warp__server_8h_abb7814611632e59302550e4bbdfc2005}\label{warp__server_8h_abb7814611632e59302550e4bbdfc2005}} 
+\index{warp\_server.h@{warp\_server.h}!DEFAULT\_BUFFER\_COUNT@{DEFAULT\_BUFFER\_COUNT}}
+\index{DEFAULT\_BUFFER\_COUNT@{DEFAULT\_BUFFER\_COUNT}!warp\_server.h@{warp\_server.h}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_BUFFER\_COUNT}{DEFAULT\_BUFFER\_COUNT}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+BUFFER\+\_\+\+COUNT~5}
+
+\mbox{\Hypertarget{warp__server_8h_a6e576a3c6530636d68b7a220480bcd32}\label{warp__server_8h_a6e576a3c6530636d68b7a220480bcd32}} 
+\index{warp\_server.h@{warp\_server.h}!DEFAULT\_BUFFER\_SIZE@{DEFAULT\_BUFFER\_SIZE}}
+\index{DEFAULT\_BUFFER\_SIZE@{DEFAULT\_BUFFER\_SIZE}!warp\_server.h@{warp\_server.h}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_BUFFER\_SIZE}{DEFAULT\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+BUFFER\+\_\+\+SIZE~4096}
+
+\mbox{\Hypertarget{warp__server_8h_a16b710f592bf8f7900666392adc444dc}\label{warp__server_8h_a16b710f592bf8f7900666392adc444dc}} 
+\index{warp\_server.h@{warp\_server.h}!DEFAULT\_PORT@{DEFAULT\_PORT}}
+\index{DEFAULT\_PORT@{DEFAULT\_PORT}!warp\_server.h@{warp\_server.h}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_PORT}{DEFAULT\_PORT}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+PORT~13337}
+
+\mbox{\Hypertarget{warp__server_8h_ad81dbcbb914cfb5501e1c020f125061d}\label{warp__server_8h_ad81dbcbb914cfb5501e1c020f125061d}} 
+\index{warp\_server.h@{warp\_server.h}!IP\_STRING\_LEN@{IP\_STRING\_LEN}}
+\index{IP\_STRING\_LEN@{IP\_STRING\_LEN}!warp\_server.h@{warp\_server.h}}
+\doxysubsubsection{\texorpdfstring{IP\_STRING\_LEN}{IP\_STRING\_LEN}}
+{\footnotesize\ttfamily \#define IP\+\_\+\+STRING\+\_\+\+LEN~50}
+
+\mbox{\Hypertarget{warp__server_8h_a2c282e15322ad7ba3c93bd9b5623fb5e}\label{warp__server_8h_a2c282e15322ad7ba3c93bd9b5623fb5e}} 
+\index{warp\_server.h@{warp\_server.h}!PORT\_STRING\_LEN@{PORT\_STRING\_LEN}}
+\index{PORT\_STRING\_LEN@{PORT\_STRING\_LEN}!warp\_server.h@{warp\_server.h}}
+\doxysubsubsection{\texorpdfstring{PORT\_STRING\_LEN}{PORT\_STRING\_LEN}}
+{\footnotesize\ttfamily \#define PORT\+\_\+\+STRING\+\_\+\+LEN~8}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{warp__server_8h_a3199e2b030e9c782d78743a39b7f35f7}\label{warp__server_8h_a3199e2b030e9c782d78743a39b7f35f7}} 
+\index{warp\_server.h@{warp\_server.h}!warpserver\_cb\_data@{warpserver\_cb\_data}}
+\index{warpserver\_cb\_data@{warpserver\_cb\_data}!warp\_server.h@{warp\_server.h}}
+\doxysubsubsection{\texorpdfstring{warpserver\_cb\_data}{warpserver\_cb\_data}}
+{\footnotesize\ttfamily typedef void($\ast$ warpserver\+\_\+cb\+\_\+data) (void $\ast$$\ast$data, size\+\_\+t $\ast$length)}
+
+Callback function for accessing the results of a previous query call.
+
+The server expects the function to store the address for data in void $\ast$data and the size of the data at size\+\_\+t length. It then populates it\textquotesingle{}s own send buffer with the data and potentially data from subsequent calls to this callback. \mbox{\Hypertarget{warp__server_8h_afaf3a561c34176bcd4fbd5a008e245d2}\label{warp__server_8h_afaf3a561c34176bcd4fbd5a008e245d2}} 
+\index{warp\_server.h@{warp\_server.h}!warpserver\_cb\_query@{warpserver\_cb\_query}}
+\index{warpserver\_cb\_query@{warpserver\_cb\_query}!warp\_server.h@{warp\_server.h}}
+\doxysubsubsection{\texorpdfstring{warpserver\_cb\_query}{warpserver\_cb\_query}}
+{\footnotesize\ttfamily typedef int($\ast$ warpserver\+\_\+cb\+\_\+query) (char $\ast$querystring)}
+
+Callback function for querying the local database.
+
+The server calls this function with the querystring and subsequently calls the data callback function for the results of the query. May return error codes. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{warp__server_8h_a50b3d3a371432b2d42e392666ce9e81a}\label{warp__server_8h_a50b3d3a371432b2d42e392666ce9e81a}} 
+\index{warp\_server.h@{warp\_server.h}!warpserver\_initialize@{warpserver\_initialize}}
+\index{warpserver\_initialize@{warpserver\_initialize}!warp\_server.h@{warp\_server.h}}
+\doxysubsubsection{\texorpdfstring{warpserver\_initialize()}{warpserver\_initialize()}}
+{\footnotesize\ttfamily int warpserver\+\_\+initialize (\begin{DoxyParamCaption}\item[{char $\ast$}]{listen\+\_\+addr\+\_\+local,  }\item[{int}]{port,  }\item[{int}]{use\+INet6,  }\item[{\mbox{\hyperlink{warp__server_8h_afaf3a561c34176bcd4fbd5a008e245d2}{warpserver\+\_\+cb\+\_\+query}}}]{querycb,  }\item[{\mbox{\hyperlink{warp__server_8h_a3199e2b030e9c782d78743a39b7f35f7}{warpserver\+\_\+cb\+\_\+data}}}]{datacb }\end{DoxyParamCaption})}
+
+char $\ast$listen\+\_\+addr\+\_\+local specifies listen address. If not specified, server uses INADDR\+\_\+\+ANY.
+
+int port specifies local listen port. If not specified, server uses DEFAULT\+\_\+\+PORT, as specified above.
+
+int use\+INet6 specifies, whether an ipv6 address shall be used. \mbox{\Hypertarget{warp__server_8h_a1f0861ae62411339af05bf3e2c86e68b}\label{warp__server_8h_a1f0861ae62411339af05bf3e2c86e68b}} 
+\index{warp\_server.h@{warp\_server.h}!warpserver\_start@{warpserver\_start}}
+\index{warpserver\_start@{warpserver\_start}!warp\_server.h@{warp\_server.h}}
+\doxysubsubsection{\texorpdfstring{warpserver\_start()}{warpserver\_start()}}
+{\footnotesize\ttfamily int warpserver\+\_\+start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{warp__server_8h_ad9a45d6b7af36ed4933c73565de32bb1}\label{warp__server_8h_ad9a45d6b7af36ed4933c73565de32bb1}} 
+\index{warp\_server.h@{warp\_server.h}!warpserver\_stop@{warpserver\_stop}}
+\index{warpserver\_stop@{warpserver\_stop}!warp\_server.h@{warp\_server.h}}
+\doxysubsubsection{\texorpdfstring{warpserver\_stop()}{warpserver\_stop()}}
+{\footnotesize\ttfamily int warpserver\+\_\+stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+

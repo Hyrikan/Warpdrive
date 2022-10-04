@@ -1,0 +1,163 @@
+\hypertarget{warp__client_8h}{}\doxysection{warp\+\_\+client.\+h File Reference}
+\label{warp__client_8h}\index{warp\_client.h@{warp\_client.h}}
+
+
+Delivers functions for connecting and requesting data from a warp\+Server.  
+
+
+{\ttfamily \#include $<$ucp/api/ucp.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for warp\+\_\+client.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{warp__client_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{warp__client_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{warp__client_8h_a16b710f592bf8f7900666392adc444dc}{DEFAULT\+\_\+\+PORT}}~13337
+\item 
+\#define \mbox{\hyperlink{warp__client_8h_ad81dbcbb914cfb5501e1c020f125061d}{IP\+\_\+\+STRING\+\_\+\+LEN}}~50
+\item 
+\#define \mbox{\hyperlink{warp__client_8h_a2c282e15322ad7ba3c93bd9b5623fb5e}{PORT\+\_\+\+STRING\+\_\+\+LEN}}~8
+\item 
+\#define \mbox{\hyperlink{warp__client_8h_afc3d101f633a076cc1ca84b85b6224b2}{TAG}}~0x\+CAFE
+\item 
+\#define \mbox{\hyperlink{warp__client_8h_a787b14664623ae1025329939b73b4dda}{COMM\+\_\+\+TYPE\+\_\+\+DEFAULT}}~\char`\"{}STREAM\char`\"{}
+\item 
+\#define \mbox{\hyperlink{warp__client_8h_a515cb544d69e291ad8d0cf6813c23f93}{PRINT\+\_\+\+INTERVAL}}~2000
+\item 
+\#define \mbox{\hyperlink{warp__client_8h_a405031d4b828905ddb15e11313f63d78}{TEST\+\_\+\+AM\+\_\+\+ID}}~0
+\item 
+\#define \mbox{\hyperlink{warp__client_8h_a6e576a3c6530636d68b7a220480bcd32}{DEFAULT\+\_\+\+BUFFER\+\_\+\+SIZE}}~4096
+\item 
+\#define \mbox{\hyperlink{warp__client_8h_abb7814611632e59302550e4bbdfc2005}{DEFAULT\+\_\+\+BUFFER\+\_\+\+COUNT}}~5
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{warp__client_8h_a39f7c09aa4d511bb248871e1694ba74f}{warpclient\+\_\+query\+Server}} (char $\ast$server\+\_\+addr\+\_\+local, int port, int use\+INet6, char $\ast$query)
+\item 
+void $\ast$ \mbox{\hyperlink{warp__client_8h_a781cba21127237f9bdd29e4ef67e8296}{warpclient\+\_\+get\+Data}} (size\+\_\+t $\ast$written)
+\item 
+int \mbox{\hyperlink{warp__client_8h_ad8b41c650bf538d890acaf2c8e065458}{warpclient\+\_\+cleanup}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Delivers functions for connecting and requesting data from a warp\+Server. 
+
+The warp\+Client delivers functions for connecting and requesting data from a warp\+Server. The workflow starts by connecting to the server via the function \mbox{\hyperlink{warp__client_8h_a39f7c09aa4d511bb248871e1694ba74f}{warpclient\+\_\+query\+Server()}}, which sends a query to the server. Subsequently, calls to \mbox{\hyperlink{warp__client_8h_a781cba21127237f9bdd29e4ef67e8296}{warpclient\+\_\+get\+Data()}} are filling buffers until a NULL is returned, which indicates the end of the data transfer. Lastly, a call to \mbox{\hyperlink{warp__client_8h_ad8b41c650bf538d890acaf2c8e065458}{warpclient\+\_\+cleanup()}} releases all allocated buffers and structs.
+
+Created by joel Ziegler on 23.\+05.\+22. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{warp__client_8h_a787b14664623ae1025329939b73b4dda}\label{warp__client_8h_a787b14664623ae1025329939b73b4dda}} 
+\index{warp\_client.h@{warp\_client.h}!COMM\_TYPE\_DEFAULT@{COMM\_TYPE\_DEFAULT}}
+\index{COMM\_TYPE\_DEFAULT@{COMM\_TYPE\_DEFAULT}!warp\_client.h@{warp\_client.h}}
+\doxysubsubsection{\texorpdfstring{COMM\_TYPE\_DEFAULT}{COMM\_TYPE\_DEFAULT}}
+{\footnotesize\ttfamily \#define COMM\+\_\+\+TYPE\+\_\+\+DEFAULT~\char`\"{}STREAM\char`\"{}}
+
+\mbox{\Hypertarget{warp__client_8h_abb7814611632e59302550e4bbdfc2005}\label{warp__client_8h_abb7814611632e59302550e4bbdfc2005}} 
+\index{warp\_client.h@{warp\_client.h}!DEFAULT\_BUFFER\_COUNT@{DEFAULT\_BUFFER\_COUNT}}
+\index{DEFAULT\_BUFFER\_COUNT@{DEFAULT\_BUFFER\_COUNT}!warp\_client.h@{warp\_client.h}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_BUFFER\_COUNT}{DEFAULT\_BUFFER\_COUNT}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+BUFFER\+\_\+\+COUNT~5}
+
+\mbox{\Hypertarget{warp__client_8h_a6e576a3c6530636d68b7a220480bcd32}\label{warp__client_8h_a6e576a3c6530636d68b7a220480bcd32}} 
+\index{warp\_client.h@{warp\_client.h}!DEFAULT\_BUFFER\_SIZE@{DEFAULT\_BUFFER\_SIZE}}
+\index{DEFAULT\_BUFFER\_SIZE@{DEFAULT\_BUFFER\_SIZE}!warp\_client.h@{warp\_client.h}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_BUFFER\_SIZE}{DEFAULT\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+BUFFER\+\_\+\+SIZE~4096}
+
+\mbox{\Hypertarget{warp__client_8h_a16b710f592bf8f7900666392adc444dc}\label{warp__client_8h_a16b710f592bf8f7900666392adc444dc}} 
+\index{warp\_client.h@{warp\_client.h}!DEFAULT\_PORT@{DEFAULT\_PORT}}
+\index{DEFAULT\_PORT@{DEFAULT\_PORT}!warp\_client.h@{warp\_client.h}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_PORT}{DEFAULT\_PORT}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+PORT~13337}
+
+\mbox{\Hypertarget{warp__client_8h_ad81dbcbb914cfb5501e1c020f125061d}\label{warp__client_8h_ad81dbcbb914cfb5501e1c020f125061d}} 
+\index{warp\_client.h@{warp\_client.h}!IP\_STRING\_LEN@{IP\_STRING\_LEN}}
+\index{IP\_STRING\_LEN@{IP\_STRING\_LEN}!warp\_client.h@{warp\_client.h}}
+\doxysubsubsection{\texorpdfstring{IP\_STRING\_LEN}{IP\_STRING\_LEN}}
+{\footnotesize\ttfamily \#define IP\+\_\+\+STRING\+\_\+\+LEN~50}
+
+\mbox{\Hypertarget{warp__client_8h_a2c282e15322ad7ba3c93bd9b5623fb5e}\label{warp__client_8h_a2c282e15322ad7ba3c93bd9b5623fb5e}} 
+\index{warp\_client.h@{warp\_client.h}!PORT\_STRING\_LEN@{PORT\_STRING\_LEN}}
+\index{PORT\_STRING\_LEN@{PORT\_STRING\_LEN}!warp\_client.h@{warp\_client.h}}
+\doxysubsubsection{\texorpdfstring{PORT\_STRING\_LEN}{PORT\_STRING\_LEN}}
+{\footnotesize\ttfamily \#define PORT\+\_\+\+STRING\+\_\+\+LEN~8}
+
+\mbox{\Hypertarget{warp__client_8h_a515cb544d69e291ad8d0cf6813c23f93}\label{warp__client_8h_a515cb544d69e291ad8d0cf6813c23f93}} 
+\index{warp\_client.h@{warp\_client.h}!PRINT\_INTERVAL@{PRINT\_INTERVAL}}
+\index{PRINT\_INTERVAL@{PRINT\_INTERVAL}!warp\_client.h@{warp\_client.h}}
+\doxysubsubsection{\texorpdfstring{PRINT\_INTERVAL}{PRINT\_INTERVAL}}
+{\footnotesize\ttfamily \#define PRINT\+\_\+\+INTERVAL~2000}
+
+\mbox{\Hypertarget{warp__client_8h_afc3d101f633a076cc1ca84b85b6224b2}\label{warp__client_8h_afc3d101f633a076cc1ca84b85b6224b2}} 
+\index{warp\_client.h@{warp\_client.h}!TAG@{TAG}}
+\index{TAG@{TAG}!warp\_client.h@{warp\_client.h}}
+\doxysubsubsection{\texorpdfstring{TAG}{TAG}}
+{\footnotesize\ttfamily \#define TAG~0x\+CAFE}
+
+\mbox{\Hypertarget{warp__client_8h_a405031d4b828905ddb15e11313f63d78}\label{warp__client_8h_a405031d4b828905ddb15e11313f63d78}} 
+\index{warp\_client.h@{warp\_client.h}!TEST\_AM\_ID@{TEST\_AM\_ID}}
+\index{TEST\_AM\_ID@{TEST\_AM\_ID}!warp\_client.h@{warp\_client.h}}
+\doxysubsubsection{\texorpdfstring{TEST\_AM\_ID}{TEST\_AM\_ID}}
+{\footnotesize\ttfamily \#define TEST\+\_\+\+AM\+\_\+\+ID~0}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{warp__client_8h_ad8b41c650bf538d890acaf2c8e065458}\label{warp__client_8h_ad8b41c650bf538d890acaf2c8e065458}} 
+\index{warp\_client.h@{warp\_client.h}!warpclient\_cleanup@{warpclient\_cleanup}}
+\index{warpclient\_cleanup@{warpclient\_cleanup}!warp\_client.h@{warp\_client.h}}
+\doxysubsubsection{\texorpdfstring{warpclient\_cleanup()}{warpclient\_cleanup()}}
+{\footnotesize\ttfamily int warpclient\+\_\+cleanup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Releases ressources from the data transfer. \mbox{\Hypertarget{warp__client_8h_a781cba21127237f9bdd29e4ef67e8296}\label{warp__client_8h_a781cba21127237f9bdd29e4ef67e8296}} 
+\index{warp\_client.h@{warp\_client.h}!warpclient\_getData@{warpclient\_getData}}
+\index{warpclient\_getData@{warpclient\_getData}!warp\_client.h@{warp\_client.h}}
+\doxysubsubsection{\texorpdfstring{warpclient\_getData()}{warpclient\_getData()}}
+{\footnotesize\ttfamily void $\ast$ warpclient\+\_\+get\+Data (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{written }\end{DoxyParamCaption})}
+
+Returns a buffer with data, length is in the variable (TODO), or NULL if all data received. \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+returns a buffer with data. As soon as the next buffer gets requested, the old one is considered obsolete and not safe to use anymore! Returns NULL, if there is no more data and the request is finished. Also releases ressources then. \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{warp__client_8h_a39f7c09aa4d511bb248871e1694ba74f}\label{warp__client_8h_a39f7c09aa4d511bb248871e1694ba74f}} 
+\index{warp\_client.h@{warp\_client.h}!warpclient\_queryServer@{warpclient\_queryServer}}
+\index{warpclient\_queryServer@{warpclient\_queryServer}!warp\_client.h@{warp\_client.h}}
+\doxysubsubsection{\texorpdfstring{warpclient\_queryServer()}{warpclient\_queryServer()}}
+{\footnotesize\ttfamily int warpclient\+\_\+query\+Server (\begin{DoxyParamCaption}\item[{char $\ast$}]{server\+\_\+addr\+\_\+local,  }\item[{int}]{port,  }\item[{int}]{use\+INet6,  }\item[{char $\ast$}]{query }\end{DoxyParamCaption})}
+
+Initializes a connection to a warpserver and sends the specified query. 
+\begin{DoxyParams}{Parameters}
+{\em server\+\_\+addr\+\_\+local} & IP address string. Defaults to \char`\"{}localhost\char`\"{} if NULL. \\
+\hline
+{\em port} & Port as Integer between 0 and 65535. Defaults to 13337 if out of range. \\
+\hline
+{\em use\+INet6} & Flag to use IPv6 address String. \\
+\hline
+{\em query} & SQL query as String. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns error codes\+: -\/3\+: Failed to initialize UCP context or worker. -\/2\+: Failed to start client. -\/1\+: Failed to connect to server. 
+\end{DoxyReturn}

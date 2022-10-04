@@ -1,0 +1,7 @@
+CREATE DATABASE mdb;
+CREATE OR REPLACE USER 'mariadb'@'%' IDENTIFIED BY 'maria1234';
+CREATE OR REPLACE USER 'mariadb'@'localhost' IDENTIFIED BY 'maria1234';
+GRANT ALL PRIVILEGES ON *.* TO 'mariadb'@'%';
+GRANT ALL PRIVILEGES ON *.* TO 'mariadb'@'localhost';
+
+FlUSH PRIVILEGES;

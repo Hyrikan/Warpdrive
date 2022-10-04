@@ -1,0 +1,149 @@
+\hypertarget{hello__world__util_8h}{}\doxysection{hello\+\_\+world\+\_\+util.\+h File Reference}
+\label{hello__world__util_8h}\index{hello\_world\_util.h@{hello\_world\_util.h}}
+{\ttfamily \#include $<$ucs/memory/memory\+\_\+type.\+h$>$}\newline
+{\ttfamily \#include $<$sys/poll.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$netdb.\+h$>$}\newline
+Include dependency graph for hello\+\_\+world\+\_\+util.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hello__world__util_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hello__world__util_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{hello__world__util_8h_ad72dbcf6d0153db1b8d8a58001feed83}{DEBUG}}
+\item 
+\#define \mbox{\hyperlink{hello__world__util_8h_a1d568ee595fe7879dd912f3aad625853}{debugmsg}}(\+\_\+msg)~    fprintf(stderr, \+\_\+msg)
+\item 
+\#define \mbox{\hyperlink{hello__world__util_8h_a3360f38ffd422915316fb7ab7431b67c}{CHKERR\+\_\+\+ACTION}}(\+\_\+cond,  \+\_\+msg,  \+\_\+action)
+\item 
+\#define \mbox{\hyperlink{hello__world__util_8h_a4151c850a3d3e2b76ac1d976230edfef}{CUDA\+\_\+\+FUNC}}(\+\_\+func)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{hello__world__util_8h_aa20d6d8b14b30cda99da783b613b0ef1}{print\+\_\+common\+\_\+help}} (void)
+\item 
+void $\ast$ \mbox{\hyperlink{hello__world__util_8h_af46842eaa1c5bf237be9f1f546d3e5e9}{mem\+\_\+type\+\_\+malloc}} (size\+\_\+t length)
+\item 
+void \mbox{\hyperlink{hello__world__util_8h_a002df842bf4277126a5aacb890c328e9}{mem\+\_\+type\+\_\+free}} (void $\ast$address)
+\item 
+void $\ast$ \mbox{\hyperlink{hello__world__util_8h_aa6acbb1c069b47e71b3c3a741e6b0185}{mem\+\_\+type\+\_\+memcpy}} (void $\ast$dst, const void $\ast$src, size\+\_\+t count)
+\item 
+void $\ast$ \mbox{\hyperlink{hello__world__util_8h_afb06a1b146dee644ece28adb471b08b7}{mem\+\_\+type\+\_\+memset}} (void $\ast$dst, int value, size\+\_\+t count)
+\item 
+int \mbox{\hyperlink{hello__world__util_8h_a75bec1313ccdbfe3522232e87f37fa10}{check\+\_\+mem\+\_\+type\+\_\+support}} (ucs\+\_\+memory\+\_\+type\+\_\+t mem\+\_\+type)
+\item 
+ucs\+\_\+memory\+\_\+type\+\_\+t \mbox{\hyperlink{hello__world__util_8h_a605f6e8e2e57b2613e5817036bb21388}{parse\+\_\+mem\+\_\+type}} (const char $\ast$opt\+\_\+arg)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{hello__world__util_8h_a3360f38ffd422915316fb7ab7431b67c}\label{hello__world__util_8h_a3360f38ffd422915316fb7ab7431b67c}} 
+\index{hello\_world\_util.h@{hello\_world\_util.h}!CHKERR\_ACTION@{CHKERR\_ACTION}}
+\index{CHKERR\_ACTION@{CHKERR\_ACTION}!hello\_world\_util.h@{hello\_world\_util.h}}
+\doxysubsubsection{\texorpdfstring{CHKERR\_ACTION}{CHKERR\_ACTION}}
+{\footnotesize\ttfamily \#define CHKERR\+\_\+\+ACTION(\begin{DoxyParamCaption}\item[{}]{\+\_\+cond,  }\item[{}]{\+\_\+msg,  }\item[{}]{\+\_\+action }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        if (\_cond) \{ \(\backslash\)}
+\DoxyCodeLine{            fprintf(stderr, \textcolor{stringliteral}{"{}Failed to \%s\(\backslash\)n"{}}, \_msg); \(\backslash\)}
+\DoxyCodeLine{            \_action; \(\backslash\)}
+\DoxyCodeLine{        \} \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{hello__world__util_8h_a4151c850a3d3e2b76ac1d976230edfef}\label{hello__world__util_8h_a4151c850a3d3e2b76ac1d976230edfef}} 
+\index{hello\_world\_util.h@{hello\_world\_util.h}!CUDA\_FUNC@{CUDA\_FUNC}}
+\index{CUDA\_FUNC@{CUDA\_FUNC}!hello\_world\_util.h@{hello\_world\_util.h}}
+\doxysubsubsection{\texorpdfstring{CUDA\_FUNC}{CUDA\_FUNC}}
+{\footnotesize\ttfamily \#define CUDA\+\_\+\+FUNC(\begin{DoxyParamCaption}\item[{}]{\+\_\+func }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{                                                   \(\backslash\)}
+\DoxyCodeLine{        cudaError\_t \_result = (\_func);                     \(\backslash\)}
+\DoxyCodeLine{        if (cudaSuccess != \_result) \{                      \(\backslash\)}
+\DoxyCodeLine{            fprintf(stderr, \textcolor{stringliteral}{"{}\%s failed: \%s\(\backslash\)n"{}},             \(\backslash\)}
+\DoxyCodeLine{                    \#\_func, cudaGetErrorString(\_result));  \(\backslash\)}
+\DoxyCodeLine{        \}                                                  \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while}(0)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{hello__world__util_8h_ad72dbcf6d0153db1b8d8a58001feed83}\label{hello__world__util_8h_ad72dbcf6d0153db1b8d8a58001feed83}} 
+\index{hello\_world\_util.h@{hello\_world\_util.h}!DEBUG@{DEBUG}}
+\index{DEBUG@{DEBUG}!hello\_world\_util.h@{hello\_world\_util.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG}{DEBUG}}
+{\footnotesize\ttfamily \#define DEBUG}
+
+Copyright (C) Mellanox Technologies Ltd. 2001-\/2016. ALL RIGHTS RESERVED.
+
+See file LICENSE for terms. \mbox{\Hypertarget{hello__world__util_8h_a1d568ee595fe7879dd912f3aad625853}\label{hello__world__util_8h_a1d568ee595fe7879dd912f3aad625853}} 
+\index{hello\_world\_util.h@{hello\_world\_util.h}!debugmsg@{debugmsg}}
+\index{debugmsg@{debugmsg}!hello\_world\_util.h@{hello\_world\_util.h}}
+\doxysubsubsection{\texorpdfstring{debugmsg}{debugmsg}}
+{\footnotesize\ttfamily \#define debugmsg(\begin{DoxyParamCaption}\item[{}]{\+\_\+msg }\end{DoxyParamCaption})~    fprintf(stderr, \+\_\+msg)}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{hello__world__util_8h_a75bec1313ccdbfe3522232e87f37fa10}\label{hello__world__util_8h_a75bec1313ccdbfe3522232e87f37fa10}} 
+\index{hello\_world\_util.h@{hello\_world\_util.h}!check\_mem\_type\_support@{check\_mem\_type\_support}}
+\index{check\_mem\_type\_support@{check\_mem\_type\_support}!hello\_world\_util.h@{hello\_world\_util.h}}
+\doxysubsubsection{\texorpdfstring{check\_mem\_type\_support()}{check\_mem\_type\_support()}}
+{\footnotesize\ttfamily int check\+\_\+mem\+\_\+type\+\_\+support (\begin{DoxyParamCaption}\item[{ucs\+\_\+memory\+\_\+type\+\_\+t}]{mem\+\_\+type }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{hello__world__util_8h_a002df842bf4277126a5aacb890c328e9}\label{hello__world__util_8h_a002df842bf4277126a5aacb890c328e9}} 
+\index{hello\_world\_util.h@{hello\_world\_util.h}!mem\_type\_free@{mem\_type\_free}}
+\index{mem\_type\_free@{mem\_type\_free}!hello\_world\_util.h@{hello\_world\_util.h}}
+\doxysubsubsection{\texorpdfstring{mem\_type\_free()}{mem\_type\_free()}}
+{\footnotesize\ttfamily void mem\+\_\+type\+\_\+free (\begin{DoxyParamCaption}\item[{void $\ast$}]{address }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{hello__world__util_8h_af46842eaa1c5bf237be9f1f546d3e5e9}\label{hello__world__util_8h_af46842eaa1c5bf237be9f1f546d3e5e9}} 
+\index{hello\_world\_util.h@{hello\_world\_util.h}!mem\_type\_malloc@{mem\_type\_malloc}}
+\index{mem\_type\_malloc@{mem\_type\_malloc}!hello\_world\_util.h@{hello\_world\_util.h}}
+\doxysubsubsection{\texorpdfstring{mem\_type\_malloc()}{mem\_type\_malloc()}}
+{\footnotesize\ttfamily void $\ast$ mem\+\_\+type\+\_\+malloc (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{hello__world__util_8h_aa6acbb1c069b47e71b3c3a741e6b0185}\label{hello__world__util_8h_aa6acbb1c069b47e71b3c3a741e6b0185}} 
+\index{hello\_world\_util.h@{hello\_world\_util.h}!mem\_type\_memcpy@{mem\_type\_memcpy}}
+\index{mem\_type\_memcpy@{mem\_type\_memcpy}!hello\_world\_util.h@{hello\_world\_util.h}}
+\doxysubsubsection{\texorpdfstring{mem\_type\_memcpy()}{mem\_type\_memcpy()}}
+{\footnotesize\ttfamily void $\ast$ mem\+\_\+type\+\_\+memcpy (\begin{DoxyParamCaption}\item[{void $\ast$}]{dst,  }\item[{const void $\ast$}]{src,  }\item[{size\+\_\+t}]{count }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{hello__world__util_8h_afb06a1b146dee644ece28adb471b08b7}\label{hello__world__util_8h_afb06a1b146dee644ece28adb471b08b7}} 
+\index{hello\_world\_util.h@{hello\_world\_util.h}!mem\_type\_memset@{mem\_type\_memset}}
+\index{mem\_type\_memset@{mem\_type\_memset}!hello\_world\_util.h@{hello\_world\_util.h}}
+\doxysubsubsection{\texorpdfstring{mem\_type\_memset()}{mem\_type\_memset()}}
+{\footnotesize\ttfamily void $\ast$ mem\+\_\+type\+\_\+memset (\begin{DoxyParamCaption}\item[{void $\ast$}]{dst,  }\item[{int}]{value,  }\item[{size\+\_\+t}]{count }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{hello__world__util_8h_a605f6e8e2e57b2613e5817036bb21388}\label{hello__world__util_8h_a605f6e8e2e57b2613e5817036bb21388}} 
+\index{hello\_world\_util.h@{hello\_world\_util.h}!parse\_mem\_type@{parse\_mem\_type}}
+\index{parse\_mem\_type@{parse\_mem\_type}!hello\_world\_util.h@{hello\_world\_util.h}}
+\doxysubsubsection{\texorpdfstring{parse\_mem\_type()}{parse\_mem\_type()}}
+{\footnotesize\ttfamily ucs\+\_\+memory\+\_\+type\+\_\+t parse\+\_\+mem\+\_\+type (\begin{DoxyParamCaption}\item[{const char $\ast$}]{opt\+\_\+arg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{hello__world__util_8h_aa20d6d8b14b30cda99da783b613b0ef1}\label{hello__world__util_8h_aa20d6d8b14b30cda99da783b613b0ef1}} 
+\index{hello\_world\_util.h@{hello\_world\_util.h}!print\_common\_help@{print\_common\_help}}
+\index{print\_common\_help@{print\_common\_help}!hello\_world\_util.h@{hello\_world\_util.h}}
+\doxysubsubsection{\texorpdfstring{print\_common\_help()}{print\_common\_help()}}
+{\footnotesize\ttfamily void print\+\_\+common\+\_\+help (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+

@@ -1,0 +1,13 @@
+{
+  "$schema": "../../../../../docker/config/query.jschema",
+  "constant": {
+    "query": "scripts/constant.sql",
+    "columns": [
+      {
+        "name": "1",
+        "type": "UInt8",
+        "nullable": false
+      }
+    ]
+  }
+}

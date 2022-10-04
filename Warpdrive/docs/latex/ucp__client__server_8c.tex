@@ -1,0 +1,234 @@
+\hypertarget{ucp__client__server_8c}{}\doxysection{ucp\+\_\+client\+\_\+server.\+c File Reference}
+\label{ucp__client__server_8c}\index{ucp\_client\_server.c@{ucp\_client\_server.c}}
+{\ttfamily \#include \char`\"{}hello\+\_\+world\+\_\+util.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$ucp/api/ucp.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for ucp\+\_\+client\+\_\+server.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ucp__client__server_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structucx__server__ctx}{ucx\+\_\+server\+\_\+ctx}}
+\item 
+struct \mbox{\hyperlink{structtest__req}{test\+\_\+req}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ucp__client__server_8c_a16b710f592bf8f7900666392adc444dc}{DEFAULT\+\_\+\+PORT}}~13337
+\item 
+\#define \mbox{\hyperlink{ucp__client__server_8c_ad81dbcbb914cfb5501e1c020f125061d}{IP\+\_\+\+STRING\+\_\+\+LEN}}~50
+\item 
+\#define \mbox{\hyperlink{ucp__client__server_8c_a2c282e15322ad7ba3c93bd9b5623fb5e}{PORT\+\_\+\+STRING\+\_\+\+LEN}}~8
+\item 
+\#define \mbox{\hyperlink{ucp__client__server_8c_afc3d101f633a076cc1ca84b85b6224b2}{TAG}}~0x\+CAFE
+\item 
+\#define \mbox{\hyperlink{ucp__client__server_8c_a787b14664623ae1025329939b73b4dda}{COMM\+\_\+\+TYPE\+\_\+\+DEFAULT}}~\char`\"{}STREAM\char`\"{}
+\item 
+\#define \mbox{\hyperlink{ucp__client__server_8c_a515cb544d69e291ad8d0cf6813c23f93}{PRINT\+\_\+\+INTERVAL}}~2000
+\item 
+\#define \mbox{\hyperlink{ucp__client__server_8c_a6d0d736794ce29036cdc0a72f51c504a}{DEFAULT\+\_\+\+NUM\+\_\+\+ITERATIONS}}~1
+\item 
+\#define \mbox{\hyperlink{ucp__client__server_8c_a405031d4b828905ddb15e11313f63d78}{TEST\+\_\+\+AM\+\_\+\+ID}}~0
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structucx__server__ctx}{ucx\+\_\+server\+\_\+ctx}} \mbox{\hyperlink{ucp__client__server_8c_af9e0f5f60e274c5b9f7df897c531f015}{ucx\+\_\+server\+\_\+ctx\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structtest__req}{test\+\_\+req}} \mbox{\hyperlink{ucp__client__server_8c_ab5c6571795ca96233111bc0fbf0db158}{test\+\_\+req\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{ucp__client__server_8c_a4f1e3c6cfa5298917bc35e4efc8b3574}{send\+\_\+recv\+\_\+type\+\_\+t}} \{ \mbox{\hyperlink{ucp__client__server_8c_a4f1e3c6cfa5298917bc35e4efc8b3574a94bc1f4d6ca355b9bbc65bea62258ac9}{CLIENT\+\_\+\+SERVER\+\_\+\+SEND\+\_\+\+RECV\+\_\+\+STREAM}} = UCS\+\_\+\+BIT(0)
+, \mbox{\hyperlink{ucp__client__server_8c_a4f1e3c6cfa5298917bc35e4efc8b3574aa76ae23ecaedf011d2885b2a9d2bebdc}{CLIENT\+\_\+\+SERVER\+\_\+\+SEND\+\_\+\+RECV\+\_\+\+TAG}} = UCS\+\_\+\+BIT(1)
+, \mbox{\hyperlink{ucp__client__server_8c_a4f1e3c6cfa5298917bc35e4efc8b3574a671d4cdc0664b0bc2323e39a7163a78d}{CLIENT\+\_\+\+SERVER\+\_\+\+SEND\+\_\+\+RECV\+\_\+\+AM}} = UCS\+\_\+\+BIT(2)
+, \mbox{\hyperlink{ucp__client__server_8c_a4f1e3c6cfa5298917bc35e4efc8b3574ae2580419780e3a319b1184c41a41aa7c}{CLIENT\+\_\+\+SERVER\+\_\+\+SEND\+\_\+\+RECV\+\_\+\+DEFAULT}} = CLIENT\+\_\+\+SERVER\+\_\+\+SEND\+\_\+\+RECV\+\_\+\+STREAM
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ucp__client__server_8c_afb39ff2966d40216ab9baa3de9fc946b}{buffer\+\_\+free}} (ucp\+\_\+dt\+\_\+iov\+\_\+t $\ast$iov)
+\item 
+int \mbox{\hyperlink{ucp__client__server_8c_a5baa6668a9aa49ed2dbd433b47cfa00a}{buffer\+\_\+malloc}} (ucp\+\_\+dt\+\_\+iov\+\_\+t $\ast$iov)
+\item 
+int \mbox{\hyperlink{ucp__client__server_8c_a76fae92359196345d69a7afb966889c8}{fill\+\_\+buffer}} (ucp\+\_\+dt\+\_\+iov\+\_\+t $\ast$iov)
+\item 
+void \mbox{\hyperlink{ucp__client__server_8c_ad65fa963259575e31693bb66c6abdf32}{set\+\_\+sock\+\_\+addr}} (const char $\ast$address\+\_\+str, struct sockaddr\+\_\+storage $\ast$saddr)
+\item 
+ucs\+\_\+status\+\_\+t \mbox{\hyperlink{ucp__client__server_8c_a21b82024fa0241d143b4aab03c3592f7}{ucp\+\_\+am\+\_\+data\+\_\+cb}} (void $\ast$arg, const void $\ast$header, size\+\_\+t header\+\_\+length, void $\ast$data, size\+\_\+t length, const ucp\+\_\+am\+\_\+recv\+\_\+param\+\_\+t $\ast$param)
+\item 
+int \mbox{\hyperlink{ucp__client__server_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ucp__client__server_8c_a787b14664623ae1025329939b73b4dda}\label{ucp__client__server_8c_a787b14664623ae1025329939b73b4dda}} 
+\index{ucp\_client\_server.c@{ucp\_client\_server.c}!COMM\_TYPE\_DEFAULT@{COMM\_TYPE\_DEFAULT}}
+\index{COMM\_TYPE\_DEFAULT@{COMM\_TYPE\_DEFAULT}!ucp\_client\_server.c@{ucp\_client\_server.c}}
+\doxysubsubsection{\texorpdfstring{COMM\_TYPE\_DEFAULT}{COMM\_TYPE\_DEFAULT}}
+{\footnotesize\ttfamily \#define COMM\+\_\+\+TYPE\+\_\+\+DEFAULT~\char`\"{}STREAM\char`\"{}}
+
+\mbox{\Hypertarget{ucp__client__server_8c_a6d0d736794ce29036cdc0a72f51c504a}\label{ucp__client__server_8c_a6d0d736794ce29036cdc0a72f51c504a}} 
+\index{ucp\_client\_server.c@{ucp\_client\_server.c}!DEFAULT\_NUM\_ITERATIONS@{DEFAULT\_NUM\_ITERATIONS}}
+\index{DEFAULT\_NUM\_ITERATIONS@{DEFAULT\_NUM\_ITERATIONS}!ucp\_client\_server.c@{ucp\_client\_server.c}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_NUM\_ITERATIONS}{DEFAULT\_NUM\_ITERATIONS}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+NUM\+\_\+\+ITERATIONS~1}
+
+\mbox{\Hypertarget{ucp__client__server_8c_a16b710f592bf8f7900666392adc444dc}\label{ucp__client__server_8c_a16b710f592bf8f7900666392adc444dc}} 
+\index{ucp\_client\_server.c@{ucp\_client\_server.c}!DEFAULT\_PORT@{DEFAULT\_PORT}}
+\index{DEFAULT\_PORT@{DEFAULT\_PORT}!ucp\_client\_server.c@{ucp\_client\_server.c}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_PORT}{DEFAULT\_PORT}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+PORT~13337}
+
+Copyright (C) Mellanox Technologies Ltd. 2018. ALL RIGHTS RESERVED.
+
+See file LICENSE for terms. \mbox{\Hypertarget{ucp__client__server_8c_ad81dbcbb914cfb5501e1c020f125061d}\label{ucp__client__server_8c_ad81dbcbb914cfb5501e1c020f125061d}} 
+\index{ucp\_client\_server.c@{ucp\_client\_server.c}!IP\_STRING\_LEN@{IP\_STRING\_LEN}}
+\index{IP\_STRING\_LEN@{IP\_STRING\_LEN}!ucp\_client\_server.c@{ucp\_client\_server.c}}
+\doxysubsubsection{\texorpdfstring{IP\_STRING\_LEN}{IP\_STRING\_LEN}}
+{\footnotesize\ttfamily \#define IP\+\_\+\+STRING\+\_\+\+LEN~50}
+
+\mbox{\Hypertarget{ucp__client__server_8c_a2c282e15322ad7ba3c93bd9b5623fb5e}\label{ucp__client__server_8c_a2c282e15322ad7ba3c93bd9b5623fb5e}} 
+\index{ucp\_client\_server.c@{ucp\_client\_server.c}!PORT\_STRING\_LEN@{PORT\_STRING\_LEN}}
+\index{PORT\_STRING\_LEN@{PORT\_STRING\_LEN}!ucp\_client\_server.c@{ucp\_client\_server.c}}
+\doxysubsubsection{\texorpdfstring{PORT\_STRING\_LEN}{PORT\_STRING\_LEN}}
+{\footnotesize\ttfamily \#define PORT\+\_\+\+STRING\+\_\+\+LEN~8}
+
+\mbox{\Hypertarget{ucp__client__server_8c_a515cb544d69e291ad8d0cf6813c23f93}\label{ucp__client__server_8c_a515cb544d69e291ad8d0cf6813c23f93}} 
+\index{ucp\_client\_server.c@{ucp\_client\_server.c}!PRINT\_INTERVAL@{PRINT\_INTERVAL}}
+\index{PRINT\_INTERVAL@{PRINT\_INTERVAL}!ucp\_client\_server.c@{ucp\_client\_server.c}}
+\doxysubsubsection{\texorpdfstring{PRINT\_INTERVAL}{PRINT\_INTERVAL}}
+{\footnotesize\ttfamily \#define PRINT\+\_\+\+INTERVAL~2000}
+
+\mbox{\Hypertarget{ucp__client__server_8c_afc3d101f633a076cc1ca84b85b6224b2}\label{ucp__client__server_8c_afc3d101f633a076cc1ca84b85b6224b2}} 
+\index{ucp\_client\_server.c@{ucp\_client\_server.c}!TAG@{TAG}}
+\index{TAG@{TAG}!ucp\_client\_server.c@{ucp\_client\_server.c}}
+\doxysubsubsection{\texorpdfstring{TAG}{TAG}}
+{\footnotesize\ttfamily \#define TAG~0x\+CAFE}
+
+\mbox{\Hypertarget{ucp__client__server_8c_a405031d4b828905ddb15e11313f63d78}\label{ucp__client__server_8c_a405031d4b828905ddb15e11313f63d78}} 
+\index{ucp\_client\_server.c@{ucp\_client\_server.c}!TEST\_AM\_ID@{TEST\_AM\_ID}}
+\index{TEST\_AM\_ID@{TEST\_AM\_ID}!ucp\_client\_server.c@{ucp\_client\_server.c}}
+\doxysubsubsection{\texorpdfstring{TEST\_AM\_ID}{TEST\_AM\_ID}}
+{\footnotesize\ttfamily \#define TEST\+\_\+\+AM\+\_\+\+ID~0}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{ucp__client__server_8c_ab5c6571795ca96233111bc0fbf0db158}\label{ucp__client__server_8c_ab5c6571795ca96233111bc0fbf0db158}} 
+\index{ucp\_client\_server.c@{ucp\_client\_server.c}!test\_req\_t@{test\_req\_t}}
+\index{test\_req\_t@{test\_req\_t}!ucp\_client\_server.c@{ucp\_client\_server.c}}
+\doxysubsubsection{\texorpdfstring{test\_req\_t}{test\_req\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structtest__req}{test\+\_\+req}} \mbox{\hyperlink{ucp__client__server_8c_ab5c6571795ca96233111bc0fbf0db158}{test\+\_\+req\+\_\+t}}}
+
+Stream request context. Holds a value to indicate whether or not the request is completed. \mbox{\Hypertarget{ucp__client__server_8c_af9e0f5f60e274c5b9f7df897c531f015}\label{ucp__client__server_8c_af9e0f5f60e274c5b9f7df897c531f015}} 
+\index{ucp\_client\_server.c@{ucp\_client\_server.c}!ucx\_server\_ctx\_t@{ucx\_server\_ctx\_t}}
+\index{ucx\_server\_ctx\_t@{ucx\_server\_ctx\_t}!ucp\_client\_server.c@{ucp\_client\_server.c}}
+\doxysubsubsection{\texorpdfstring{ucx\_server\_ctx\_t}{ucx\_server\_ctx\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structucx__server__ctx}{ucx\+\_\+server\+\_\+ctx}} \mbox{\hyperlink{ucp__client__server_8c_af9e0f5f60e274c5b9f7df897c531f015}{ucx\+\_\+server\+\_\+ctx\+\_\+t}}}
+
+Server\textquotesingle{}s application context to be used in the user\textquotesingle{}s connection request callback. It holds the server\textquotesingle{}s listener and the handle to an incoming connection request. 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{ucp__client__server_8c_a4f1e3c6cfa5298917bc35e4efc8b3574}\label{ucp__client__server_8c_a4f1e3c6cfa5298917bc35e4efc8b3574}} 
+\index{ucp\_client\_server.c@{ucp\_client\_server.c}!send\_recv\_type\_t@{send\_recv\_type\_t}}
+\index{send\_recv\_type\_t@{send\_recv\_type\_t}!ucp\_client\_server.c@{ucp\_client\_server.c}}
+\doxysubsubsection{\texorpdfstring{send\_recv\_type\_t}{send\_recv\_type\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ucp__client__server_8c_a4f1e3c6cfa5298917bc35e4efc8b3574}{send\+\_\+recv\+\_\+type\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLIENT\_SERVER\_SEND\_RECV\_STREAM@{CLIENT\_SERVER\_SEND\_RECV\_STREAM}!ucp\_client\_server.c@{ucp\_client\_server.c}}\index{ucp\_client\_server.c@{ucp\_client\_server.c}!CLIENT\_SERVER\_SEND\_RECV\_STREAM@{CLIENT\_SERVER\_SEND\_RECV\_STREAM}}}\mbox{\Hypertarget{ucp__client__server_8c_a4f1e3c6cfa5298917bc35e4efc8b3574a94bc1f4d6ca355b9bbc65bea62258ac9}\label{ucp__client__server_8c_a4f1e3c6cfa5298917bc35e4efc8b3574a94bc1f4d6ca355b9bbc65bea62258ac9}} 
+CLIENT\+\_\+\+SERVER\+\_\+\+SEND\+\_\+\+RECV\+\_\+\+STREAM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLIENT\_SERVER\_SEND\_RECV\_TAG@{CLIENT\_SERVER\_SEND\_RECV\_TAG}!ucp\_client\_server.c@{ucp\_client\_server.c}}\index{ucp\_client\_server.c@{ucp\_client\_server.c}!CLIENT\_SERVER\_SEND\_RECV\_TAG@{CLIENT\_SERVER\_SEND\_RECV\_TAG}}}\mbox{\Hypertarget{ucp__client__server_8c_a4f1e3c6cfa5298917bc35e4efc8b3574aa76ae23ecaedf011d2885b2a9d2bebdc}\label{ucp__client__server_8c_a4f1e3c6cfa5298917bc35e4efc8b3574aa76ae23ecaedf011d2885b2a9d2bebdc}} 
+CLIENT\+\_\+\+SERVER\+\_\+\+SEND\+\_\+\+RECV\+\_\+\+TAG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLIENT\_SERVER\_SEND\_RECV\_AM@{CLIENT\_SERVER\_SEND\_RECV\_AM}!ucp\_client\_server.c@{ucp\_client\_server.c}}\index{ucp\_client\_server.c@{ucp\_client\_server.c}!CLIENT\_SERVER\_SEND\_RECV\_AM@{CLIENT\_SERVER\_SEND\_RECV\_AM}}}\mbox{\Hypertarget{ucp__client__server_8c_a4f1e3c6cfa5298917bc35e4efc8b3574a671d4cdc0664b0bc2323e39a7163a78d}\label{ucp__client__server_8c_a4f1e3c6cfa5298917bc35e4efc8b3574a671d4cdc0664b0bc2323e39a7163a78d}} 
+CLIENT\+\_\+\+SERVER\+\_\+\+SEND\+\_\+\+RECV\+\_\+\+AM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLIENT\_SERVER\_SEND\_RECV\_DEFAULT@{CLIENT\_SERVER\_SEND\_RECV\_DEFAULT}!ucp\_client\_server.c@{ucp\_client\_server.c}}\index{ucp\_client\_server.c@{ucp\_client\_server.c}!CLIENT\_SERVER\_SEND\_RECV\_DEFAULT@{CLIENT\_SERVER\_SEND\_RECV\_DEFAULT}}}\mbox{\Hypertarget{ucp__client__server_8c_a4f1e3c6cfa5298917bc35e4efc8b3574ae2580419780e3a319b1184c41a41aa7c}\label{ucp__client__server_8c_a4f1e3c6cfa5298917bc35e4efc8b3574ae2580419780e3a319b1184c41a41aa7c}} 
+CLIENT\+\_\+\+SERVER\+\_\+\+SEND\+\_\+\+RECV\+\_\+\+DEFAULT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ucp__client__server_8c_afb39ff2966d40216ab9baa3de9fc946b}\label{ucp__client__server_8c_afb39ff2966d40216ab9baa3de9fc946b}} 
+\index{ucp\_client\_server.c@{ucp\_client\_server.c}!buffer\_free@{buffer\_free}}
+\index{buffer\_free@{buffer\_free}!ucp\_client\_server.c@{ucp\_client\_server.c}}
+\doxysubsubsection{\texorpdfstring{buffer\_free()}{buffer\_free()}}
+{\footnotesize\ttfamily void buffer\+\_\+free (\begin{DoxyParamCaption}\item[{ucp\+\_\+dt\+\_\+iov\+\_\+t $\ast$}]{iov }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ucp__client__server_8c_a5baa6668a9aa49ed2dbd433b47cfa00a}\label{ucp__client__server_8c_a5baa6668a9aa49ed2dbd433b47cfa00a}} 
+\index{ucp\_client\_server.c@{ucp\_client\_server.c}!buffer\_malloc@{buffer\_malloc}}
+\index{buffer\_malloc@{buffer\_malloc}!ucp\_client\_server.c@{ucp\_client\_server.c}}
+\doxysubsubsection{\texorpdfstring{buffer\_malloc()}{buffer\_malloc()}}
+{\footnotesize\ttfamily int buffer\+\_\+malloc (\begin{DoxyParamCaption}\item[{ucp\+\_\+dt\+\_\+iov\+\_\+t $\ast$}]{iov }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ucp__client__server_8c_a76fae92359196345d69a7afb966889c8}\label{ucp__client__server_8c_a76fae92359196345d69a7afb966889c8}} 
+\index{ucp\_client\_server.c@{ucp\_client\_server.c}!fill\_buffer@{fill\_buffer}}
+\index{fill\_buffer@{fill\_buffer}!ucp\_client\_server.c@{ucp\_client\_server.c}}
+\doxysubsubsection{\texorpdfstring{fill\_buffer()}{fill\_buffer()}}
+{\footnotesize\ttfamily int fill\+\_\+buffer (\begin{DoxyParamCaption}\item[{ucp\+\_\+dt\+\_\+iov\+\_\+t $\ast$}]{iov }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ucp__client__server_8c_a3c04138a5bfe5d72780bb7e82a18e627}\label{ucp__client__server_8c_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{ucp\_client\_server.c@{ucp\_client\_server.c}!main@{main}}
+\index{main@{main}!ucp\_client\_server.c@{ucp\_client\_server.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ucp__client__server_8c_ad65fa963259575e31693bb66c6abdf32}\label{ucp__client__server_8c_ad65fa963259575e31693bb66c6abdf32}} 
+\index{ucp\_client\_server.c@{ucp\_client\_server.c}!set\_sock\_addr@{set\_sock\_addr}}
+\index{set\_sock\_addr@{set\_sock\_addr}!ucp\_client\_server.c@{ucp\_client\_server.c}}
+\doxysubsubsection{\texorpdfstring{set\_sock\_addr()}{set\_sock\_addr()}}
+{\footnotesize\ttfamily void set\+\_\+sock\+\_\+addr (\begin{DoxyParamCaption}\item[{const char $\ast$}]{address\+\_\+str,  }\item[{struct sockaddr\+\_\+storage $\ast$}]{saddr }\end{DoxyParamCaption})}
+
+Set an address for the server to listen on -\/ INADDR\+\_\+\+ANY on a well known port. \mbox{\Hypertarget{ucp__client__server_8c_a21b82024fa0241d143b4aab03c3592f7}\label{ucp__client__server_8c_a21b82024fa0241d143b4aab03c3592f7}} 
+\index{ucp\_client\_server.c@{ucp\_client\_server.c}!ucp\_am\_data\_cb@{ucp\_am\_data\_cb}}
+\index{ucp\_am\_data\_cb@{ucp\_am\_data\_cb}!ucp\_client\_server.c@{ucp\_client\_server.c}}
+\doxysubsubsection{\texorpdfstring{ucp\_am\_data\_cb()}{ucp\_am\_data\_cb()}}
+{\footnotesize\ttfamily ucs\+\_\+status\+\_\+t ucp\+\_\+am\+\_\+data\+\_\+cb (\begin{DoxyParamCaption}\item[{void $\ast$}]{arg,  }\item[{const void $\ast$}]{header,  }\item[{size\+\_\+t}]{header\+\_\+length,  }\item[{void $\ast$}]{data,  }\item[{size\+\_\+t}]{length,  }\item[{const ucp\+\_\+am\+\_\+recv\+\_\+param\+\_\+t $\ast$}]{param }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{ucp__client__server_8c_a02566be109a5989ee135b64e06cd1898}\label{ucp__client__server_8c_a02566be109a5989ee135b64e06cd1898}} 
+\index{ucp\_client\_server.c@{ucp\_client\_server.c}!complete@{complete}}
+\index{complete@{complete}!ucp\_client\_server.c@{ucp\_client\_server.c}}
+\doxysubsubsection{\texorpdfstring{complete}{complete}}
+{\footnotesize\ttfamily volatile int complete}
+
+\mbox{\Hypertarget{ucp__client__server_8c_aabab4a57f1bca978579e5878afb257f8}\label{ucp__client__server_8c_aabab4a57f1bca978579e5878afb257f8}} 
+\index{ucp\_client\_server.c@{ucp\_client\_server.c}!desc@{desc}}
+\index{desc@{desc}!ucp\_client\_server.c@{ucp\_client\_server.c}}
+\doxysubsubsection{\texorpdfstring{desc}{desc}}
+{\footnotesize\ttfamily void$\ast$ desc}
+
+\mbox{\Hypertarget{ucp__client__server_8c_a87e6bb8383f5c0aafe1550cd7f704147}\label{ucp__client__server_8c_a87e6bb8383f5c0aafe1550cd7f704147}} 
+\index{ucp\_client\_server.c@{ucp\_client\_server.c}!is\_rndv@{is\_rndv}}
+\index{is\_rndv@{is\_rndv}!ucp\_client\_server.c@{ucp\_client\_server.c}}
+\doxysubsubsection{\texorpdfstring{is\_rndv}{is\_rndv}}
+{\footnotesize\ttfamily int is\+\_\+rndv}
+
+\mbox{\Hypertarget{ucp__client__server_8c_a058306d69dae703dbd0651dd40cc912b}\label{ucp__client__server_8c_a058306d69dae703dbd0651dd40cc912b}} 
+\index{ucp\_client\_server.c@{ucp\_client\_server.c}!recv\_buf@{recv\_buf}}
+\index{recv\_buf@{recv\_buf}!ucp\_client\_server.c@{ucp\_client\_server.c}}
+\doxysubsubsection{\texorpdfstring{recv\_buf}{recv\_buf}}
+{\footnotesize\ttfamily void$\ast$ recv\+\_\+buf}
+

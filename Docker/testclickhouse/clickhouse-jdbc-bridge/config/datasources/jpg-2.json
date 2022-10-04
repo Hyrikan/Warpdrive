@@ -1,0 +1,10 @@
+{
+  "jpg-2": {
+  "driverUrls": [
+    "https://jdbc.postgresql.org/download/postgresql-42.4.0.jar"
+  ],
+  "jdbcUrl": "jdbc:postgresql://10.5.1.22:5432/db2",
+  "username": "postgres",
+  "password": "post1234"
+  }
+}

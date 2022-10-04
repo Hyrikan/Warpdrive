@@ -1,0 +1,11 @@
+var searchData=
+[
+  ['warpclient_5fcleanup_0',['warpclient_cleanup',['../warp__client_8c.html#ad8b41c650bf538d890acaf2c8e065458',1,'warpclient_cleanup():&#160;warp_client.c'],['../warp__client_8h.html#ad8b41c650bf538d890acaf2c8e065458',1,'warpclient_cleanup():&#160;warp_client.c']]],
+  ['warpclient_5fgetdata_1',['warpclient_getData',['../warp__client_8c.html#a781cba21127237f9bdd29e4ef67e8296',1,'warpclient_getData(size_t *written):&#160;warp_client.c'],['../warp__client_8h.html#a781cba21127237f9bdd29e4ef67e8296',1,'warpclient_getData(size_t *written):&#160;warp_client.c']]],
+  ['warpclient_5fqueryserver_2',['warpclient_queryServer',['../warp__client_8c.html#a39f7c09aa4d511bb248871e1694ba74f',1,'warpclient_queryServer(char *server_addr_local, int port, int useINet6, char *query):&#160;warp_client.c'],['../warp__client_8h.html#a39f7c09aa4d511bb248871e1694ba74f',1,'warpclient_queryServer(char *server_addr_local, int port, int useINet6, char *query):&#160;warp_client.c']]],
+  ['warpclient_5fsendmsg_3',['warpclient_sendMsg',['../warp__client_8c.html#ab1189cd18edf49e7b0356378948dce59',1,'warp_client.c']]],
+  ['warpserver_5finitialize_4',['warpserver_initialize',['../warp__server_8c.html#a50b3d3a371432b2d42e392666ce9e81a',1,'warpserver_initialize(char *listen_addr_local, int port, int useINet6, warpserver_cb_query querycb, warpserver_cb_data datacb):&#160;warp_server.c'],['../warp__server_8h.html#a50b3d3a371432b2d42e392666ce9e81a',1,'warpserver_initialize(char *listen_addr_local, int port, int useINet6, warpserver_cb_query querycb, warpserver_cb_data datacb):&#160;warp_server.c']]],
+  ['warpserver_5fsendbuffer_5',['warpserver_sendBuffer',['../warp__server_8c.html#acef3e27adc975857452ca69af494c374',1,'warp_server.c']]],
+  ['warpserver_5fstart_6',['warpserver_start',['../warp__server_8c.html#a1f0861ae62411339af05bf3e2c86e68b',1,'warpserver_start():&#160;warp_server.c'],['../warp__server_8h.html#a1f0861ae62411339af05bf3e2c86e68b',1,'warpserver_start():&#160;warp_server.c']]],
+  ['warpserver_5fstop_7',['warpserver_stop',['../warp__server_8c.html#ad9a45d6b7af36ed4933c73565de32bb1',1,'warpserver_stop():&#160;warp_server.c'],['../warp__server_8h.html#ad9a45d6b7af36ed4933c73565de32bb1',1,'warpserver_stop():&#160;warp_server.c']]]
+];

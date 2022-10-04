@@ -1,0 +1,13 @@
+{
+  "$schema": "../datasource.jschema",
+  "jmdb-2": {
+    "driverUrls": [
+      "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.0.4/mariadb-java-client-3.0.4.jar"
+    ],
+    "driverClassName": "org.mariadb.jdbc.Driver",
+    "jdbcUrl": "jdbc:mariadb://jmdb-2:3306/mdb",
+    "username": "mariadb",
+    "password": "maria1234",
+    "maximumPoolSize": 5
+  }
+}

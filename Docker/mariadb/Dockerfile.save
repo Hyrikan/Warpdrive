@@ -1,0 +1,28 @@
+# base image. Same as in Haris maria docker.
+FROM mariadb:10.5-focal
+
+# set commands to reduce interactions
+ENV DEBIAN_FRONTEND noninteractive
+
+# setting password as environment variable.
+ENV MYSQL_ROOT_PASSWORD="maria1234"
+
+# -------------------------------------------- Haris mariadb stuff (odbc, tpch import scripts) ------------------------------------
+# comment out a few problematic configuration values
+RUN	find /etc/mysql/ -name '*.cnf' -print0 \
+		| xargs -0 grep -lZE '^(bind-address|log|user\s)' \
+		| xargs -rt -0 sed -Ei 's/^(bind-address|log|user\s)/#&/';
+# don't reverse lookup hostnames, they are usually another container
+RUN	echo '[mysqld]\nskip-host-cache\nskip-name-resolve' > /etc/mysql/conf.d/docker.cnf
+
+
+# comment out a few problematic configuration values
+RUN	find /etc/mysql/ -name '*.cnf' -print0 \
+		| xargs -0 grep -lZE '^(bind-address|log|user\s)' \
+		| xargs -rt -0 sed -Ei 's/^(bind-address|log|user\s)/#&/';
+# don't reverse lookup hostnames, they are usually another container
+RUN	echo '[mysqld]\nskip-host-cache\nskip-name-resolve' > /etc/mysql/conf.d/docker.cnf
+
+
+
+

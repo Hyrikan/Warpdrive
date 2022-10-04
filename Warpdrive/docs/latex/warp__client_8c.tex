@@ -1,0 +1,180 @@
+\hypertarget{warp__client_8c}{}\doxysection{warp\+\_\+client.\+c File Reference}
+\label{warp__client_8c}\index{warp\_client.c@{warp\_client.c}}
+{\ttfamily \#include \char`\"{}hello\+\_\+world\+\_\+util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}warp\+\_\+client.\+h\char`\"{}}\newline
+Include dependency graph for warp\+\_\+client.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{warp__client_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structucx__server__ctx}{ucx\+\_\+server\+\_\+ctx}}
+\item 
+struct \mbox{\hyperlink{structtest__req}{test\+\_\+req}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structucx__server__ctx}{ucx\+\_\+server\+\_\+ctx}} \mbox{\hyperlink{warp__client_8c_af9e0f5f60e274c5b9f7df897c531f015}{ucx\+\_\+server\+\_\+ctx\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structtest__req}{test\+\_\+req}} \mbox{\hyperlink{warp__client_8c_ab5c6571795ca96233111bc0fbf0db158}{test\+\_\+req\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{warp__client_8c_ad65fa963259575e31693bb66c6abdf32}{set\+\_\+sock\+\_\+addr}} (const char $\ast$address\+\_\+str, struct sockaddr\+\_\+storage $\ast$saddr)
+\item 
+int \mbox{\hyperlink{warp__client_8c_ab1189cd18edf49e7b0356378948dce59}{warpclient\+\_\+send\+Msg}} (ucp\+\_\+dt\+\_\+iov\+\_\+t $\ast$buffer)
+\item 
+int \mbox{\hyperlink{warp__client_8c_adabb4db457f430fc420d4dc80bfb22f7}{send\+\_\+query}} (char $\ast$query)
+\item 
+void $\ast$ \mbox{\hyperlink{warp__client_8c_a781cba21127237f9bdd29e4ef67e8296}{warpclient\+\_\+get\+Data}} (size\+\_\+t $\ast$written)
+\item 
+int \mbox{\hyperlink{warp__client_8c_ad8b41c650bf538d890acaf2c8e065458}{warpclient\+\_\+cleanup}} ()
+\item 
+int \mbox{\hyperlink{warp__client_8c_a39f7c09aa4d511bb248871e1694ba74f}{warpclient\+\_\+query\+Server}} (char $\ast$server\+\_\+addr\+\_\+local, int port, int use\+INet6, char $\ast$query)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{warp__client_8c_a88c69d62cdea8587dda7803145989c3a}{server\+\_\+addr}} = NULL
+\item 
+ucp\+\_\+context\+\_\+h \mbox{\hyperlink{warp__client_8c_a6ac28afa212136c2f61a7b7f87f999ca}{ucp\+\_\+context}}
+\item 
+ucp\+\_\+worker\+\_\+h \mbox{\hyperlink{warp__client_8c_a1591dc648c8b0221873e16d8605df3ac}{ucp\+\_\+worker}}
+\item 
+ucp\+\_\+ep\+\_\+h \mbox{\hyperlink{warp__client_8c_a4585634a96794108b48be13205c59cc9}{client\+\_\+ep}}
+\item 
+int \mbox{\hyperlink{warp__client_8c_a8187bcc8b6864a1d874736e9212c49d8}{communication\+In\+Progress}} = 0
+\item 
+ucp\+\_\+dt\+\_\+iov\+\_\+t $\ast$ \mbox{\hyperlink{warp__client_8c_a94ccfa9428eb0a350ff123ae012e77bd}{recvbuffer}}
+\item 
+ucp\+\_\+request\+\_\+param\+\_\+t \mbox{\hyperlink{warp__client_8c_a4b7346500012e04bdd67fd6a03f90d47}{recvparam}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{warp__client_8c_ab5c6571795ca96233111bc0fbf0db158}\label{warp__client_8c_ab5c6571795ca96233111bc0fbf0db158}} 
+\index{warp\_client.c@{warp\_client.c}!test\_req\_t@{test\_req\_t}}
+\index{test\_req\_t@{test\_req\_t}!warp\_client.c@{warp\_client.c}}
+\doxysubsubsection{\texorpdfstring{test\_req\_t}{test\_req\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structtest__req}{test\+\_\+req}} \mbox{\hyperlink{ucp__client__server_8c_ab5c6571795ca96233111bc0fbf0db158}{test\+\_\+req\+\_\+t}}}
+
+Stream request context. Holds a value to indicate whether or not the request is completed. \mbox{\Hypertarget{warp__client_8c_af9e0f5f60e274c5b9f7df897c531f015}\label{warp__client_8c_af9e0f5f60e274c5b9f7df897c531f015}} 
+\index{warp\_client.c@{warp\_client.c}!ucx\_server\_ctx\_t@{ucx\_server\_ctx\_t}}
+\index{ucx\_server\_ctx\_t@{ucx\_server\_ctx\_t}!warp\_client.c@{warp\_client.c}}
+\doxysubsubsection{\texorpdfstring{ucx\_server\_ctx\_t}{ucx\_server\_ctx\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structucx__server__ctx}{ucx\+\_\+server\+\_\+ctx}} \mbox{\hyperlink{ucp__client__server_8c_af9e0f5f60e274c5b9f7df897c531f015}{ucx\+\_\+server\+\_\+ctx\+\_\+t}}}
+
+Server\textquotesingle{}s application context to be used in the user\textquotesingle{}s connection request callback. It holds the server\textquotesingle{}s listener and the handle to an incoming connection request. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{warp__client_8c_adabb4db457f430fc420d4dc80bfb22f7}\label{warp__client_8c_adabb4db457f430fc420d4dc80bfb22f7}} 
+\index{warp\_client.c@{warp\_client.c}!send\_query@{send\_query}}
+\index{send\_query@{send\_query}!warp\_client.c@{warp\_client.c}}
+\doxysubsubsection{\texorpdfstring{send\_query()}{send\_query()}}
+{\footnotesize\ttfamily int send\+\_\+query (\begin{DoxyParamCaption}\item[{char $\ast$}]{query }\end{DoxyParamCaption})}
+
+Sends the sql query to the server and handles communication before data transfer. \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{warp__client_8c_ad65fa963259575e31693bb66c6abdf32}\label{warp__client_8c_ad65fa963259575e31693bb66c6abdf32}} 
+\index{warp\_client.c@{warp\_client.c}!set\_sock\_addr@{set\_sock\_addr}}
+\index{set\_sock\_addr@{set\_sock\_addr}!warp\_client.c@{warp\_client.c}}
+\doxysubsubsection{\texorpdfstring{set\_sock\_addr()}{set\_sock\_addr()}}
+{\footnotesize\ttfamily void set\+\_\+sock\+\_\+addr (\begin{DoxyParamCaption}\item[{const char $\ast$}]{address\+\_\+str,  }\item[{struct sockaddr\+\_\+storage $\ast$}]{saddr }\end{DoxyParamCaption})}
+
+Set an address for the server to listen on -\/ INADDR\+\_\+\+ANY on a well known port. \mbox{\Hypertarget{warp__client_8c_ad8b41c650bf538d890acaf2c8e065458}\label{warp__client_8c_ad8b41c650bf538d890acaf2c8e065458}} 
+\index{warp\_client.c@{warp\_client.c}!warpclient\_cleanup@{warpclient\_cleanup}}
+\index{warpclient\_cleanup@{warpclient\_cleanup}!warp\_client.c@{warp\_client.c}}
+\doxysubsubsection{\texorpdfstring{warpclient\_cleanup()}{warpclient\_cleanup()}}
+{\footnotesize\ttfamily int warpclient\+\_\+cleanup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Releases ressources from the data transfer. \mbox{\Hypertarget{warp__client_8c_a781cba21127237f9bdd29e4ef67e8296}\label{warp__client_8c_a781cba21127237f9bdd29e4ef67e8296}} 
+\index{warp\_client.c@{warp\_client.c}!warpclient\_getData@{warpclient\_getData}}
+\index{warpclient\_getData@{warpclient\_getData}!warp\_client.c@{warp\_client.c}}
+\doxysubsubsection{\texorpdfstring{warpclient\_getData()}{warpclient\_getData()}}
+{\footnotesize\ttfamily void $\ast$ warpclient\+\_\+get\+Data (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{written }\end{DoxyParamCaption})}
+
+returns a buffer with data. As soon as the next buffer gets requested, the old one is considered obsolete and not safe to use anymore! Returns NULL, if there is no more data and the request is finished. Also releases ressources then. \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{warp__client_8c_a39f7c09aa4d511bb248871e1694ba74f}\label{warp__client_8c_a39f7c09aa4d511bb248871e1694ba74f}} 
+\index{warp\_client.c@{warp\_client.c}!warpclient\_queryServer@{warpclient\_queryServer}}
+\index{warpclient\_queryServer@{warpclient\_queryServer}!warp\_client.c@{warp\_client.c}}
+\doxysubsubsection{\texorpdfstring{warpclient\_queryServer()}{warpclient\_queryServer()}}
+{\footnotesize\ttfamily int warpclient\+\_\+query\+Server (\begin{DoxyParamCaption}\item[{char $\ast$}]{server\+\_\+addr\+\_\+local,  }\item[{int}]{port,  }\item[{int}]{use\+INet6,  }\item[{char $\ast$}]{query }\end{DoxyParamCaption})}
+
+Initializes a connection to a warpserver and sends the specified query. 
+\begin{DoxyParams}{Parameters}
+{\em server\+\_\+addr\+\_\+local} & IP address string. Defaults to \char`\"{}localhost\char`\"{} if NULL. \\
+\hline
+{\em port} & Port as Integer between 0 and 65535. Defaults to 13337 if out of range. \\
+\hline
+{\em use\+INet6} & Flag to use IPv6 address String. \\
+\hline
+{\em query} & SQL query as String. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns error codes\+: -\/3\+: Failed to initialize UCP context or worker. -\/2\+: Failed to start client. -\/1\+: Failed to connect to server. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{warp__client_8c_ab1189cd18edf49e7b0356378948dce59}\label{warp__client_8c_ab1189cd18edf49e7b0356378948dce59}} 
+\index{warp\_client.c@{warp\_client.c}!warpclient\_sendMsg@{warpclient\_sendMsg}}
+\index{warpclient\_sendMsg@{warpclient\_sendMsg}!warp\_client.c@{warp\_client.c}}
+\doxysubsubsection{\texorpdfstring{warpclient\_sendMsg()}{warpclient\_sendMsg()}}
+{\footnotesize\ttfamily int warpclient\+\_\+send\+Msg (\begin{DoxyParamCaption}\item[{ucp\+\_\+dt\+\_\+iov\+\_\+t $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+Sends a message to the server \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{warp__client_8c_a4585634a96794108b48be13205c59cc9}\label{warp__client_8c_a4585634a96794108b48be13205c59cc9}} 
+\index{warp\_client.c@{warp\_client.c}!client\_ep@{client\_ep}}
+\index{client\_ep@{client\_ep}!warp\_client.c@{warp\_client.c}}
+\doxysubsubsection{\texorpdfstring{client\_ep}{client\_ep}}
+{\footnotesize\ttfamily ucp\+\_\+ep\+\_\+h client\+\_\+ep}
+
+\mbox{\Hypertarget{warp__client_8c_a8187bcc8b6864a1d874736e9212c49d8}\label{warp__client_8c_a8187bcc8b6864a1d874736e9212c49d8}} 
+\index{warp\_client.c@{warp\_client.c}!communicationInProgress@{communicationInProgress}}
+\index{communicationInProgress@{communicationInProgress}!warp\_client.c@{warp\_client.c}}
+\doxysubsubsection{\texorpdfstring{communicationInProgress}{communicationInProgress}}
+{\footnotesize\ttfamily int communication\+In\+Progress = 0}
+
+\mbox{\Hypertarget{warp__client_8c_a94ccfa9428eb0a350ff123ae012e77bd}\label{warp__client_8c_a94ccfa9428eb0a350ff123ae012e77bd}} 
+\index{warp\_client.c@{warp\_client.c}!recvbuffer@{recvbuffer}}
+\index{recvbuffer@{recvbuffer}!warp\_client.c@{warp\_client.c}}
+\doxysubsubsection{\texorpdfstring{recvbuffer}{recvbuffer}}
+{\footnotesize\ttfamily ucp\+\_\+dt\+\_\+iov\+\_\+t$\ast$ recvbuffer}
+
+\mbox{\Hypertarget{warp__client_8c_a4b7346500012e04bdd67fd6a03f90d47}\label{warp__client_8c_a4b7346500012e04bdd67fd6a03f90d47}} 
+\index{warp\_client.c@{warp\_client.c}!recvparam@{recvparam}}
+\index{recvparam@{recvparam}!warp\_client.c@{warp\_client.c}}
+\doxysubsubsection{\texorpdfstring{recvparam}{recvparam}}
+{\footnotesize\ttfamily ucp\+\_\+request\+\_\+param\+\_\+t recvparam}
+
+\mbox{\Hypertarget{warp__client_8c_a88c69d62cdea8587dda7803145989c3a}\label{warp__client_8c_a88c69d62cdea8587dda7803145989c3a}} 
+\index{warp\_client.c@{warp\_client.c}!server\_addr@{server\_addr}}
+\index{server\_addr@{server\_addr}!warp\_client.c@{warp\_client.c}}
+\doxysubsubsection{\texorpdfstring{server\_addr}{server\_addr}}
+{\footnotesize\ttfamily char$\ast$ server\+\_\+addr = NULL}
+
+\mbox{\Hypertarget{warp__client_8c_a6ac28afa212136c2f61a7b7f87f999ca}\label{warp__client_8c_a6ac28afa212136c2f61a7b7f87f999ca}} 
+\index{warp\_client.c@{warp\_client.c}!ucp\_context@{ucp\_context}}
+\index{ucp\_context@{ucp\_context}!warp\_client.c@{warp\_client.c}}
+\doxysubsubsection{\texorpdfstring{ucp\_context}{ucp\_context}}
+{\footnotesize\ttfamily ucp\+\_\+context\+\_\+h ucp\+\_\+context}
+
+\mbox{\Hypertarget{warp__client_8c_a1591dc648c8b0221873e16d8605df3ac}\label{warp__client_8c_a1591dc648c8b0221873e16d8605df3ac}} 
+\index{warp\_client.c@{warp\_client.c}!ucp\_worker@{ucp\_worker}}
+\index{ucp\_worker@{ucp\_worker}!warp\_client.c@{warp\_client.c}}
+\doxysubsubsection{\texorpdfstring{ucp\_worker}{ucp\_worker}}
+{\footnotesize\ttfamily ucp\+\_\+worker\+\_\+h ucp\+\_\+worker}
+
