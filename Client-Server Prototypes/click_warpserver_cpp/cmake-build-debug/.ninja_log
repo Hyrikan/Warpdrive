@@ -1,0 +1,6 @@
+# ninja log v5
+1	33	1664864005943004073	build.ninja	5c9981e716aaf73a
+2	1852	1664283638556539166	CMakeFiles/click_warpserver_cpp.dir/main.cpp.o	b195ea725eab4c57
+1852	1973	1664283638680542434	click_warpserver_cpp	a8c612469655a798
+2	1525	1664864075312686017	CMakeFiles/click_warpserver_cpp.dir/main.cpp.o	b195ea725eab4c57
+1525	1677	1664864075464689677	click_warpserver_cpp	a8c612469655a798

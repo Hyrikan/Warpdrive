@@ -1,0 +1,3 @@
+/home/joel/bachelorarbeit/Bachelorarbeit/Code/pg_standalone_warpServer/cmake-build-debug/CMakeFiles/pg_standalone_warpServer.dir
+/home/joel/bachelorarbeit/Bachelorarbeit/Code/pg_standalone_warpServer/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/joel/bachelorarbeit/Bachelorarbeit/Code/pg_standalone_warpServer/cmake-build-debug/CMakeFiles/rebuild_cache.dir
